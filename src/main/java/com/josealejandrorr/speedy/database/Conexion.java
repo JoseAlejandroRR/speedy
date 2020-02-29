@@ -46,7 +46,7 @@ public class Conexion {
     private void loadVars()
     {
         List<Map<String, String>> list = new ArrayList<>();
-        String file = "eloquent.config";
+        String file = "application.config";
         String content = "";
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             for(String line; (line = br.readLine()) != null; ) {
@@ -72,7 +72,7 @@ public class Conexion {
                     }
                 }
                 content = line;
-                Conexion.url = "jdbc:mysql://"+Conexion.host+":"+Conexion.port+"/"+Conexion.db+"?generateSimpleParameterMetadata=true&zeroDateTimeBehavior=convertToNull";
+                Conexion.url = "jdbc:mysql://"+Conexion.host+":"+Conexion.port+"/"+Conexion.db+"?generateSimpleParameterMetadata=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull";
 
             }
             //System.out.println(Conexion.url);

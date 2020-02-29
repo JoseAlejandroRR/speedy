@@ -89,7 +89,7 @@ public class Response {
 
         String data = "";
         if (obj instanceof ArrayList) {
-            data = "[" +((ArrayList) obj).stream().map(item -> jsonFromModel(item)).collect(Collectors.joining("")).toString() + "]";
+            data = "[" +((ArrayList) obj).stream().map(item -> jsonFromModel(item)).collect(Collectors.joining(",")).toString() + "]";
         } else {
             data = jsonFromModel(obj);
         }

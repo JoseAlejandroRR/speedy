@@ -1,9 +1,13 @@
 package com.josealejandrorr.speedy.data.drivers;
 
 import com.josealejandrorr.speedy.annotations.ModelEntity;
+import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseQuery;
+import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
 import com.josealejandrorr.speedy.contracts.data.repositories.Repository;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.data.EntityMapper;
+import com.josealejandrorr.speedy.data.entities.EntityFilter;
+import com.josealejandrorr.speedy.data.entities.FilterOperator;
 import com.josealejandrorr.speedy.database.Conexion;
 import com.josealejandrorr.speedy.data.entities.Model;
 import com.josealejandrorr.speedy.utils.Builder;
@@ -15,8 +19,9 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
+import java.util.stream.Collectors;
 
-public class MySqlDriverDatabase extends EntityMapper implements Repository {
+public class MySqlDriverDatabase extends EntityMapper implements DatabaseRepository {
 
     private String fieldIndex;
 
@@ -68,7 +73,6 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
         {
             String sql = "SELECT "+table+".* FROM "+metaData.table()+" WHERE "+metaData.pkey()+" = ? LIMIT 1";
             Map<String, String> filters = new HashMap<String, String>();
-            Map<String, String> obj = new HashMap<String, String>();
 
             filters.put(metaData.pkey(), String.valueOf(id));
             ArrayList<HashMap<String, Object>> data = resultSetToArrayList(query(sql, filters));
@@ -77,65 +81,8 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
                 return Optional.of(data.get(0));
             }
 
-            /*data.stream().findFirst().ifPresent(e -> {
-                Annotation an = this.getClass().getAnnotation(ModelEntity.class);
-                ((ModelEntity me = (ModelEntity) an;
-                //this.key = (long) Long.parseLong(e.get(entity.in));
-                Builder.setProperties(this, e);
-
-
-            });*/
-
         }
-        return Optional.of(null);
-    }
-
-    private  ArrayList<HashMap<String, Object>> resultSetToArrayList(ResultSet rs)
-    {
-        ArrayList<HashMap<String, Object>> list = new ArrayList<>();
-        try {
-            ResultSetMetaData md = rs.getMetaData();
-            int columns = md.getColumnCount();
-            while (rs.next()) {
-                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                HashMap<String, Object> row = new HashMap<>();
-                System.out.println(rs.getRow());
-                for (int i = 1; i <= columns; ++i) {
-                    System.out.println("-> "+md.getColumnTypeName(i));
-                    System.out.println("class "+md.getColumnClassName(i));
-
-                    switch(md.getColumnClassName(i))
-                    {
-                        case "TIMESTAMPS":
-                            String date = String.valueOf(rs.getTimestamp(i));
-                            date = date.replace(".0","");
-                            row.put(md.getColumnName(i).toLowerCase(), date);
-                            //System.out.println(md.getColumnName(i)+"="+date);
-                            break;
-                        case "java.lang.String":
-                            row.put(md.getColumnName(i).toLowerCase(), rs.getString(i));
-                            break;
-                        case "java.lang.Integer":
-                            row.put(md.getColumnName(i).toLowerCase(), rs.getInt(i));
-                            break;
-                        case "java.lang.Double":
-                            row.put(md.getColumnName(i).toLowerCase(), rs.getDouble(i));
-                            break;
-                        case "java.lang.Boolean":
-                            row.put(md.getColumnName(i).toLowerCase(), rs.getBoolean(i));
-                            break;
-                        default:
-                            row.put(md.getColumnName(i).toLowerCase(), rs.getString(i));
-                            //System.out.println(data.getString(i));
-                            break;
-                    }
-                }
-                list.add(row);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
+        return Optional.ofNullable(null);
     }
 
     private void setTimestamps(Repository model, Map<String, String> map)
@@ -150,22 +97,23 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
 
     @Override
     public boolean create(Model entity) {
-        int success = 0;
         String fieldsSql = "";
         String valuesSql = "";
 
         List<String> fields = new ArrayList<String>();
         List<String> values = new ArrayList<String>();
 
-        this.properties.remove(fieldIndex);
+        Map<String, String> map = convertModelMapToPlainMap(createMapFromObject(entity));
 
-        Iterator iter = this.properties.keySet().iterator();
+        ModelEntity metaData = getModelMetaData(entity);
+
+        Iterator iter = map.keySet().iterator();
 
         while(iter.hasNext())
         {
             String k = (String) iter.next();
-            if(!fieldIndex.equals(k)){
-                String value = this.properties.get(k).toString();
+            if(!metaData.pkey().equals(k)){
+                String value = map.get(k).toString();
                 fields.add(k);
                 values.add("?");
                 fieldsSql+= k+",";
@@ -176,42 +124,104 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
         fieldsSql = String.join(",", fields);
         valuesSql = String.join(",", values);
 
-        String sql = "INSERT INTO "+tableName+" ("+fieldsSql+") VALUES ("+valuesSql+")";
-
-        Map<String, String> map = convertModelMapToPlainMap(createMapFromObject(this));
+        String sql = "INSERT INTO "+ metaData.table()+" ("+fieldsSql+") VALUES ("+valuesSql+")";
 
         return executeRequest(sql, map);
     }
 
     @Override
-    public boolean update(Model entity) {
-        int success = 0;
+    public boolean update(Model entity, long id) {
+
         String updateSql = "";
-        System.out.println("-- update() --");
 
-        this.properties.remove("created_at");
+        Map<String, String> map = convertModelMapToPlainMap(createMapFromObject(entity));
 
-        Iterator itte = this.properties.keySet().iterator();
+        ModelEntity metaData = getModelMetaData(entity);
 
-        while(itte.hasNext())
+        Iterator itter = map.keySet().iterator();
+
+        while(itter.hasNext())
         {
-            String key = (String) itte.next();
-            //System.out.println(key+"="+this.properties.get(key));
-            //updateSql += key+"=@"+key+",";
+            String key = (String) itter.next();
             updateSql += key+"= ?, ";
         }
 
-        //this.properties.put(this.pkey, String.valueOf(this.key));
         updateSql = updateSql.substring(0, updateSql.length()-2);
-        String sql = "UPDATE "+this.tableName+" SET "+updateSql+" WHERE "+this.tableName+"."+this.fieldIndex+" = "+this.key+" LIMIT 1";
+        String sql = "UPDATE "+metaData.table()+" SET "+updateSql+" WHERE "+metaData.table()+"."+metaData.pkey()+" = "+ id +" LIMIT 1";
 
-        Map<String, String> map = convertModelMapToPlainMap(createMapFromObject(this));
         return executeRequest(sql, map);
     }
 
     @Override
-    public boolean delete(Model entity) {
-        return false;
+    public Optional search(Model entity, DatabaseQuery query)
+    {
+        String filtersCondition = "WHERE " + formatFilter(query.filters.get(0).field, query.filters.get(0).operator, query.filters.get(0).value, false);
+        query.filters.remove(0);
+
+        filtersCondition = filtersCondition + query.filters.stream().map(f -> {
+            String conditional = (f.conditional == FilterOperator.AND)? "AND" : "OR";
+
+            String s =  String.format("%s %s", conditional, formatFilter(f.field, f.operator, f.value, false));
+            return s;
+        }).collect(Collectors.joining(" "));
+
+        Optional<ArrayList> fsl = Optional.ofNullable(query.fieldSelecteds);
+
+        String selectedFields = "*";
+        if (fsl.isPresent()) {
+            if (fsl.get().size() > 0) {
+                selectedFields = query.fieldSelecteds.stream().collect(Collectors.joining(","));
+            }
+        }
+
+        String tables = "";
+        Optional<ArrayList> tbls = Optional.ofNullable(query.tables);
+        if (tbls.isPresent()) {
+            if (tbls.get().size() > 0) {
+                tables = query.tables.stream().collect(Collectors.joining(","));
+            }
+        }
+        HashMap<String, String> params = new HashMap<>();
+
+        String sql = String.format("SELECT %s FROM %s %s %s %s",
+                selectedFields,
+                tables,
+                filtersCondition,
+                "",
+                parserLimit(query.limitFrom, query.limitTo));
+
+        // executeRequest(sql, params);
+        ArrayList<HashMap<String, Object>> data = resultSetToArrayList(query(sql, params));
+
+        return Optional.ofNullable(data);
+    }
+    private String parserLimit(long from, long to)
+    {
+        String limit = "";
+        if(to >= 0)
+        {
+            if(from >= 0)
+            {
+                limit = String.format("LIMIT %d, %d",from, to);
+            } else {
+                limit = String.format("LIMIT %d", to);
+            }
+        }
+        return limit;
+    }
+
+    @Override
+    public boolean delete(Model entity)
+    {
+        Map<String, String> map = convertModelMapToPlainMap(createMapFromObject(entity));
+        ModelEntity metaData = getModelMetaData(entity);
+
+        String sql = "DELETE FROM "+metaData.table()+" WHERE "+metaData.pkey()+" = ? LIMIT 1";
+        Map<String, String> filters = new HashMap<String, String>();
+
+        filters.put(metaData.pkey(), String.valueOf(map.get(metaData.pkey())));
+
+        return executeRequest(sql, filters);
     }
 
     @Override
@@ -242,7 +252,7 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
             }
         } catch(SQLException e){
             //System.out.println(e);
-            logger.error("-- ERROR:1 %s", e.getMessage());
+            logger.error("-- ERROR:1 "+ e.getMessage());
         }
         return result;
     }
@@ -321,6 +331,54 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
         return success;
     }
 
+    protected void closeConnection()
+    {
+        /*try {
+            this.connection.close();
+        } catch (SQLException e) {
+            this.showConsole("Error Close Connection: " + e.getMessage());
+            e.printStackTrace();
+        }*/
+        this.isConnected = false;
+        this.connection = null;
+    }
+
+    @Override
+    public Optional firstOne(Model entity) {
+        return getFirst(entity, true);
+    }
+
+    @Override
+    public Optional lastOne(Model entity) {
+        return getFirst(entity, false);
+    }
+
+    @Override
+    public Optional first(Model entity, HashMap<String, Object> conditions)
+    {
+        return Optional.ofNullable(null);
+    }
+
+    public Optional last(Model entity, HashMap<String, Object> conditions)
+    {
+        return Optional.ofNullable(null);
+    }
+
+    private Optional getFirst(Model entity, boolean first)
+    {
+        ModelEntity metaData = getModelMetaData(entity);
+        String orderBy = (first)? "ASC" : "DESC";
+
+        String sql = "SELECT "+metaData.table()+".* FROM "+metaData.table()+" ORDER BY "+ metaData.pkey()+" "+ orderBy +" LIMIT 1";
+
+        ArrayList<HashMap<String, Object>> data = resultSetToArrayList(query(sql));
+
+        if (data.size() > 0) {
+            return Optional.of(data.get(0));
+        }
+        return Optional.ofNullable(null);
+    }
+
     public ResultSet query(String sql)
     {
         Map<String, String> params = new HashMap<String,String>();
@@ -334,16 +392,90 @@ public class MySqlDriverDatabase extends EntityMapper implements Repository {
         return resultSet;
     }
 
-    protected void closeConnection()
+    private  ArrayList<HashMap<String, Object>> resultSetToArrayList(ResultSet rs)
     {
-        /*try {
-            this.connection.close();
-        } catch (SQLException e) {
-            this.showConsole("Error Close Connection: " + e.getMessage());
+        ArrayList<HashMap<String, Object>> list = new ArrayList<>();
+        try {
+            ResultSetMetaData md = rs.getMetaData();
+            int columns = md.getColumnCount();
+            while (rs.next()) {
+                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                HashMap<String, Object> row = new HashMap<>();
+                System.out.println(rs.getRow());
+                for (int i = 1; i <= columns; ++i) {
+                    System.out.println("-> "+md.getColumnTypeName(i));
+                    System.out.println("class "+md.getColumnClassName(i));
+
+                    switch(md.getColumnClassName(i))
+                    {
+                        case "TIMESTAMPS":
+                            String date = String.valueOf(rs.getTimestamp(i));
+                            date = date.replace(".0","");
+                            row.put(md.getColumnName(i).toLowerCase(), date);
+                            //System.out.println(md.getColumnName(i)+"="+date);
+                            break;
+                        case "java.lang.String":
+                            row.put(md.getColumnName(i).toLowerCase(), rs.getString(i));
+                            break;
+                        case "java.lang.Integer":
+                            row.put(md.getColumnName(i).toLowerCase(), rs.getInt(i));
+                            break;
+                        case "java.lang.Double":
+                            row.put(md.getColumnName(i).toLowerCase(), rs.getDouble(i));
+                            break;
+                        case "java.lang.Boolean":
+                            row.put(md.getColumnName(i).toLowerCase(), rs.getBoolean(i));
+                            break;
+                        default:
+                            row.put(md.getColumnName(i).toLowerCase(), rs.getString(i));
+                            //System.out.println(data.getString(i));
+                            break;
+                    }
+                }
+                list.add(row);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-        }*/
-        this.isConnected = false;
-        this.connection = null;
+        }
+        return list;
     }
+
+    private String formatFilter(String field, String condition, String value, boolean isField)
+    {
+        String filter = "";
+        String comiInit = "";
+        String comiEnd = "";
+        if(!isField)
+        {
+            comiInit = "'";
+            comiEnd = "'";
+        }
+        switch(condition.toLowerCase())
+        {
+            case "=":
+                filter += String.format("%s=%s%s%s",field,comiInit,value,comiEnd);
+                break;
+            case "!=":
+                filter += String.format("%s!=%s%s%s",field,comiInit,value,comiEnd);
+                break;
+            case "<":
+                filter += String.format("%s<%s%s%s",field,comiInit,value,comiEnd);
+                break;
+            case "<=":
+                filter += String.format("%s<=%s%s%s",field,comiInit,value,comiEnd);
+                break;
+            case ">":
+                filter += String.format("%s>%s%s%s",field,comiInit,value,comiEnd);
+                break;
+            case ">=":
+                filter += String.format("%s>=%s%s%s",field,comiInit,value,comiEnd);
+                break;
+            case "like":
+                filter += String.format("%s LIKE '%s'",field,value);
+                break;
+        }
+        return filter;
+    }
+
 
 }

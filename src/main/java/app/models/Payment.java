@@ -8,4 +8,5 @@ public class Payment extends Model {
 
     public Integer id;
     public String name;
+    public String description;
 }

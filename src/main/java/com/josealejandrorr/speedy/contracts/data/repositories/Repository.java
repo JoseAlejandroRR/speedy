@@ -13,7 +13,7 @@ public interface Repository {
 
     public boolean create(Model entity);
 
-    public boolean update(Model entity);
+    public boolean update(Model entity, long id);
 
     public boolean delete(Model entity);
 

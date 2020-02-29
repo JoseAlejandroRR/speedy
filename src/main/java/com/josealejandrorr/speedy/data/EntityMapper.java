@@ -32,7 +32,7 @@ public abstract class EntityMapper {
                 } else if(field.getType().toString().toLowerCase().contains("double"))
                 {
                     addField = true;
-                } else if(field.getType().toString().toLowerCase().contains("decimal"))
+                } else if(field.getType().toString().toLowerCase().contains("integer"))
                 {
                     addField = true;
                 } else if(field.getType().toString().toLowerCase().contains("float"))
@@ -47,15 +47,6 @@ public abstract class EntityMapper {
                 }
                 if(addField)
                 {
-
-                    /*String value = String.valueOf(field.get(obj));
-                    if(value.equals("null")) value = "";
-                    if(field.getType().toString().contains("Date")){
-                        if(field.get(obj)!=null){
-                            value = dt.format(field.get(obj));
-                        }
-                    }*/
-
                     map.put(field.getName(), field.get(obj));
                 }
 

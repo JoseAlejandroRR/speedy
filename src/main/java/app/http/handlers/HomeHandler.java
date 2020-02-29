@@ -231,9 +231,23 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
 
         Payment payment = new Payment();
 
-        payment.findById(1);
+        /*payment.findById(1);
+        payment.id = 5;
+        payment.name = "Smartphones";
+        payment.description = "Categories for cellulars";
+        payment.delete();*/
+        //payment.save();
 
-        res.json(payment);
+        res.json(
+                payment
+                        .where("id", "=", "1")
+                        .orWhere("id", "=", "2")
+                        //.where("name", "LIKE", "alg")
+                       //.orWhere("name","LIKE","%alg%")
+                        .take(10)
+                        //.skip(5)
+                        .get()
+        );
 
     }
 }
