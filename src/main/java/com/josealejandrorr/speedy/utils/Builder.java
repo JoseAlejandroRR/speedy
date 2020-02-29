@@ -131,6 +131,7 @@ public class Builder {
                 Map<String, String> row = new HashMap<>();
                 //System.out.println(rs.getRow());
                 for (int i = 1; i <= columns; ++i) {
+                    System.out.println(md.getColumnTypeName(i));
                     switch(md.getColumnTypeName(i))
                     {
                         case "TIMESTAMP":
@@ -144,8 +145,6 @@ public class Builder {
                             //System.out.println(data.getString(i));
                             break;
                     }
-                    //System.out.println(md.getColumnName(i)+"="+rs.getString(i));
-                    //row.put(md.getColumnName(i), rs.getString(i));
                 }
                 list.add(row);
             }

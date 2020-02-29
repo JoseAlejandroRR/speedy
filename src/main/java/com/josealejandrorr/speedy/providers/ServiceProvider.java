@@ -28,9 +28,13 @@ public class ServiceProvider {
         for (Map.Entry<String, Object> provider : instances.entrySet())
         {
             Provider instance = new Provider();
-            if (!provider.getValue().getClass().toString().contains("class")) return;
-            String className = provider.getValue().toString().split(" ")[1];
-            instance.create(Builder.createInstance(className));
+            System.out.println(provider.getValue().getClass());
+            if (provider.getValue() instanceof Class) {
+                String className = provider.getValue().toString().split(" ")[1];
+                instance.create(Builder.createInstance(className));
+            } else {
+                instance.create(provider.getValue());
+            }
             registeProvider(provider.getKey(), instance);
         }
 
@@ -53,5 +57,12 @@ public class ServiceProvider {
         logger.debug("Register Provider: " + key);
         providers.put(key, instance);
     }
+
+    /*public enum Providers {
+        SERVICES_PROVIDERS,
+        LOGGER
+    }*/
+
+    public final static String SERVICE_REPOSITORY = "service_repository";
 
 }

@@ -1,9 +1,6 @@
 package app.http.handlers;
 
-import app.models.Category;
-import app.models.Customer;
-import app.models.Device;
-import app.models.User;
+import app.models.*;
 import com.josealejandrorr.speedy.contracts.http.IRequestHandler;
 import com.josealejandrorr.speedy.database.DB;
 import com.josealejandrorr.speedy.database.Model;
@@ -222,15 +219,21 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
 
     public void customer(Request req, Response res)
     {
-       Customer customer = new Customer();
+       /*Customer customer = new Customer();
 
        customer.name = "Jose";
        customer.lastname = "Realza";
        customer.email = "skillcorptech@gmail.com";
        //customer.save();
 
-       res.json(customer.where("id",">","0").get());
+       res.json(customer.where("id",">","0").get());*/
        //res.json(customer);
+
+        Payment payment = new Payment();
+
+        payment.findById(1);
+
+        res.json(payment);
 
     }
 }
