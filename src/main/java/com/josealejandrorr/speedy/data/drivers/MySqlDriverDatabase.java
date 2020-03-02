@@ -61,17 +61,11 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
 
     @Override
     public Optional<HashMap<String, Object>> findById(Model entity, long id) {
-
-        String table = collectionsMapper.get(entity.getClass().getName());
-        if (table == null) {
-            logger.error("Table not defined for:" + entity.getClass().getName());
-        }
-
         HashMap<String, Object> map = new HashMap<String, Object>();
         ModelEntity metaData = getModelMetaData(entity);
         if(id>0)
         {
-            String sql = "SELECT "+table+".* FROM "+metaData.table()+" WHERE "+metaData.pkey()+" = ? LIMIT 1";
+            String sql = "SELECT "+metaData.table()+".* FROM "+metaData.table()+" WHERE "+metaData.pkey()+" = ? LIMIT 1";
             Map<String, String> filters = new HashMap<String, String>();
 
             filters.put(metaData.pkey(), String.valueOf(id));
@@ -106,7 +100,7 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
         Map<String, String> map = convertModelMapToPlainMap(createMapFromObject(entity));
 
         ModelEntity metaData = getModelMetaData(entity);
-
+        map.remove(metaData.pkey());
         Iterator iter = map.keySet().iterator();
 
         while(iter.hasNext())
@@ -155,16 +149,19 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
     @Override
     public Optional search(Model entity, DatabaseQuery query)
     {
-        String filtersCondition = "WHERE " + formatFilter(query.filters.get(0).field, query.filters.get(0).operator, query.filters.get(0).value, false);
-        query.filters.remove(0);
-
-        filtersCondition = filtersCondition + query.filters.stream().map(f -> {
+        //String filtersCondition = "WHERE " + formatFilter(query.filters.get(0).field, query.filters.get(0).operator, query.filters.get(0).value, false);
+        String filtersCondition = "WHERE" ;
+        //query.filters.remove(0);
+        int fi = 0;
+        for(EntityFilter f: query.filters){
             String conditional = (f.conditional == FilterOperator.AND)? "AND" : "OR";
-
-            String s =  String.format("%s %s", conditional, formatFilter(f.field, f.operator, f.value, false));
-            return s;
-        }).collect(Collectors.joining(" "));
-
+            if (fi == 0) conditional = "";
+            //String value = (f.isField)? f.value : "'"+f.value+"'";
+            String s =  String.format(" %s %s", conditional, formatFilter(f.field, f.operator, f.value, f.isField));
+            //return s;
+            filtersCondition = filtersCondition + s;
+            fi++;
+        }
         Optional<ArrayList> fsl = Optional.ofNullable(query.fieldSelecteds);
 
         String selectedFields = "*";
@@ -195,6 +192,17 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
 
         return Optional.ofNullable(data);
     }
+
+    @Override
+    public Optional hasOne(Model entityParent, Model entityChild) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional hasMany(Model entityParent, Model entityChild) {
+        return Optional.empty();
+    }
+
     private String parserLimit(long from, long to)
     {
         String limit = "";
@@ -406,22 +414,30 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                     System.out.println("-> "+md.getColumnTypeName(i));
                     System.out.println("class "+md.getColumnClassName(i));
 
-                    switch(md.getColumnClassName(i))
+                    switch(md.getColumnTypeName(i))
                     {
-                        case "TIMESTAMPS":
+                        case "TIMESTAMP":
                             String date = String.valueOf(rs.getTimestamp(i));
                             date = date.replace(".0","");
                             row.put(md.getColumnName(i).toLowerCase(), date);
                             //System.out.println(md.getColumnName(i)+"="+date);
                             break;
                         case "java.lang.String":
+                        case "VARCHAR":
                             row.put(md.getColumnName(i).toLowerCase(), rs.getString(i));
                             break;
                         case "java.lang.Integer":
+                        case "INT":
+                        case "BIT":
                             row.put(md.getColumnName(i).toLowerCase(), rs.getInt(i));
                             break;
                         case "java.lang.Double":
+                        case "DOUBLE":
                             row.put(md.getColumnName(i).toLowerCase(), rs.getDouble(i));
+                            break;
+                        case "java.lang.Long":
+                        case "BIGINT":
+                            row.put(md.getColumnName(i).toLowerCase(), rs.getLong(i));
                             break;
                         case "java.lang.Boolean":
                             row.put(md.getColumnName(i).toLowerCase(), rs.getBoolean(i));

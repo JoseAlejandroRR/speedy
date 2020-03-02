@@ -233,7 +233,7 @@ public class RouterHandler implements HttpHandler {
                 b = true;
                 //logger.debug("WORKS " + matcher.group());
             }
-
+            //System.out.println(uri.split("__").length+"=="+path.split("__").length);
             if(b && uri.split("__").length==path.split("__").length) {
                 logger.debug("ROUTE EXIST \n");
 

@@ -61,7 +61,11 @@ public abstract class Model  {
         tables = new ArrayList<String>();
         tables.add(tableName);
 
+        filters = new ArrayList<>();
         selectFields = new ArrayList<>();
+
+        limitFrom = 0;
+        limitTo = -1;
     }
 
     public Model select(String field)
@@ -186,6 +190,73 @@ public abstract class Model  {
         if(skip < 0) return this;
         this.limitFrom = skip;
         return this;
+    }
+
+    public Model join(String table, String field, String condition, String value)
+    {
+        EntityFilter filter = new EntityFilter(field, condition, value, FilterOperator.AND, true);
+        filters.add(filter);
+        if (!tables.contains(table)) {
+            tables.add(table);
+        }
+        return this;
+    }
+
+    public ArrayList hasMany(Class clazz,String keyForeign)
+    {
+        ArrayList<Model> items = new ArrayList<>();
+        Model obj = null;
+        obj = (Model) Builder.createInstance(clazz.getName());
+
+        if (obj == null) return items;
+
+        this.join(obj.tableName,obj.tableName+"."+keyForeign, "=", String.valueOf(this.tableName+"."+this.fieldIndex))
+                .select(obj.tableName+".*")
+                .where(this.tableName+"."+this.fieldIndex,"=", String.valueOf(this.key));
+
+        DatabaseQuery query = new DatabaseQuery();
+
+        query.fieldSelecteds = selectFields;
+        query.filters = filters;
+        query.tables = tables;
+
+        Optional<ArrayList<HashMap>> results = serviceRepository.search(this, query);
+
+        if (results.isPresent()) {
+            items  = (ArrayList<Model>) results.get().stream().map(m -> {
+                Model child = (Model) Builder.createInstance(clazz.getName());
+                child.setInstance(m);
+                return child;
+            }).collect(Collectors.toList());
+        }
+        resetQuery();
+        return items;
+    }
+
+    public Model hasOne(Class clazz,String keyForeign)
+    {
+        Model obj = (Model) Builder.createInstance(clazz.getName());
+
+        this.join(obj.tableName,obj.tableName+"."+keyForeign, "=", String.valueOf(this.tableName+"."+this.fieldIndex))
+                .select(obj.tableName+".*")
+                .where(this.tableName+"."+this.fieldIndex,"=", String.valueOf(this.key))
+                .take(1);
+
+        DatabaseQuery query = new DatabaseQuery();
+
+        query.fieldSelecteds = selectFields;
+        query.filters = filters;
+        query.tables = tables;
+        query.limitTo = limitTo;
+
+        Optional<ArrayList<HashMap>> results = serviceRepository.search(this, query);
+        if (results.isPresent()) {
+            if (results.get().size() > 0) {
+                obj.setInstance(results.get().get(0));
+            }
+        }
+        resetQuery();
+        return obj;
     }
 
 

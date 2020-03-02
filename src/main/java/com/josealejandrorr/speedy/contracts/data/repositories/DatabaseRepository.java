@@ -18,4 +18,8 @@ public interface DatabaseRepository extends Repository {
     public Optional last(Model entity, HashMap<String, Object> conditions);
 
     public Optional search(Model entity, DatabaseQuery query);
+
+    public Optional hasOne(Model entityParent, Model entityChild);
+
+    public Optional hasMany(Model entityParent, Model entityChild);
 }

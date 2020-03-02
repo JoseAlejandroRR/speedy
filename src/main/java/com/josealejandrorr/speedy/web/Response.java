@@ -121,7 +121,7 @@ public class Response {
 
             if(value == null) {
                 map.put(key,  null);
-            } else if (value.getClass().getSuperclass().getName().contains("speedy.database.Model")) {
+            } else if (value.getClass().getSuperclass().getName().contains("speedy.data.entities.Model")) {
                 map.put(key,  jsonFromModel(value));
             } else if (value instanceof ArrayList){
                 String node = ((ArrayList) value).stream().map(n -> jsonFromModel(n)).collect(Collectors.joining(",")).toString();

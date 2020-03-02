@@ -32,6 +32,9 @@ public abstract class EntityMapper {
                 } else if(field.getType().toString().toLowerCase().contains("double"))
                 {
                     addField = true;
+                } else if(field.getType().toString().toLowerCase().contains("long"))
+                {
+                    addField = true;
                 } else if(field.getType().toString().toLowerCase().contains("integer"))
                 {
                     addField = true;

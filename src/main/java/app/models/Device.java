@@ -19,7 +19,7 @@ public class Device extends Model {
     public Category category()
     {
         if (category == null) {
-            category = (Category) this.belongsTo(Category.class, "category_id");
+            //category = (Category) this.belongsTo(Category.class, "category_id");
         }
         return this.category;
     }

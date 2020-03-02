@@ -238,7 +238,7 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
         payment.delete();*/
         //payment.save();
 
-        res.json(
+        /*res.json(
                 payment
                         .where("id", "=", "1")
                         .orWhere("id", "=", "2")
@@ -247,7 +247,34 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
                         .take(10)
                         //.skip(5)
                         .get()
-        );
+        );*/
 
+        Product p1 = new Product();
+        p1.name = "AMD Ryzen 9 3900";
+        p1.description = "Procesador AMD de 3ra generacion";
+        p1.price = 419.99;
+        p1.status = 1;
+        p1.stock = 100;
+        p1.category_id = 1;
+        p1.brand_id = 0;
+        //p1.save();
+
+        Product p2 = new Product();
+        p2.name = "Intel i9 9900KS";
+        p2.description = "Procesador Intel de 10ma generacion";
+        p2.price = 480.50;
+        p2.status = 1;
+        p2.stock = 200;
+        p2.category_id = 1;
+        p2.brand_id = 0;
+        //p2.findById(8);
+        //p2.save();
+
+        Category category = new Category();
+        category.findById(2);
+        category.products();
+        category.product();
+
+        res.json(category);
     }
 }
