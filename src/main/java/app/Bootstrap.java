@@ -20,7 +20,8 @@ public class Bootstrap {
         Conexion conexion = new Conexion();
         conexion.modeDebug = true;
 
-        Logger logger = new Logger(Logger.DEBUG, "./application.log");
+        int appModeLogger = Logger.DEBUG;
+        Logger logger = new Logger(appModeLogger, "./application.log");
 
         //Logger.getLogger().debug("App Init");
 

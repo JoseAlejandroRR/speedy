@@ -30,11 +30,11 @@ public class Builder {
             Class classDefinition = Class.forName(className);
             object = classDefinition.newInstance();
         } catch (InstantiationException e) {
-            System.out.println("Error 1: "+e);
+            System.out.println("Error 1: "+e.toString());
         } catch (IllegalAccessException e) {
-            System.out.println("Error 2: "+e);
+            System.out.println("Error 2: "+e.toString());
         } catch (ClassNotFoundException e) {
-            System.out.println("Error 3: "+e);
+            System.out.println("Error 3: "+e.toString());
         }
         return object;
     }

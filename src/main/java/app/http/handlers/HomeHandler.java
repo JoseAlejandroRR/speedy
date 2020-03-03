@@ -1,6 +1,9 @@
 package app.http.handlers;
 
 import app.models.*;
+import app.services.ProductService;
+import com.josealejandrorr.speedy.annotations.AutoLoad;
+import com.josealejandrorr.speedy.annotations.SmartClass;
 import com.josealejandrorr.speedy.contracts.http.IRequestHandler;
 import com.josealejandrorr.speedy.database.DB;
 import com.josealejandrorr.speedy.database.Model;
@@ -12,9 +15,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.stream.Collectors;
 
+@SmartClass
 public class HomeHandler extends RequestHandler implements IRequestHandler {
 
     private String message;
+
+    @AutoLoad
+    private ProductService productService;
 
     public HomeHandler()
     {
@@ -268,17 +275,24 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
         p2.category_id = 1;
         p2.brand_id = 0;
         p2.findById(8);
-        p2.save();
+        //p2.save();
 
         Category category = new Category();
         category.findById(2);
-        //category.products();
+        category.products();
         //category.product();
 
         //p2.findById(2);
         //
-         p2.category().products();
-
-        res.json(p2);
+         //p2.category().products();
+        //productService = new ProductService();
+        //System.out.println(productService.name);
+        //res.json(category);
+        boolean s = productService.addProduc(req.body);
+        if (s) {
+            res.send("Product register");
+        } else {
+            res.send("Error in addProduct");
+        }
     }
 }

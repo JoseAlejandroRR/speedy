@@ -108,8 +108,10 @@ public class Response {
 
     private String jsonFromModel(Object obj)
     {
-        Builder.bindProperties(obj);
-        if (obj instanceof Map) {
+        //  Builder.bindProperties(obj);
+        if (obj instanceof String) {
+            return obj.toString();
+        } else if (obj instanceof Map) {
             return Builder.convertHashMapToJson((HashMap) obj);
         }
         HashMap<String, Object> map = new HashMap<String, Object>(

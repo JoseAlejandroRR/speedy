@@ -1,6 +1,5 @@
 package com.josealejandrorr.speedy.utils;
 
-
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.files.File;
 
