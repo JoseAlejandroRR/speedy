@@ -268,10 +268,10 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
         p2.category_id = 1;
         p2.brand_id = 0;
         p2.findById(8);
-        //p2.save();
+        p2.save();
 
         Category category = new Category();
-       // category.findById(2);
+        category.findById(2);
         //category.products();
         //category.product();
 

@@ -13,6 +13,7 @@ import com.josealejandrorr.speedy.web.Server;
 
 public class Bootstrap {
 
+    private static String urlConfigurationFile = "./application.config";
     public static void run()
     {
         System.out.println("Init");
@@ -40,7 +41,7 @@ public class Bootstrap {
 
         container.setLogger(logger);
 
-        Application app = new Application(server, container, logger);
+        Application app = new Application(server, container, urlConfigurationFile, logger);
 
         Routes routes = new Routes(server.getRouterHandler());
 

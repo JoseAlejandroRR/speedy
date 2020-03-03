@@ -19,5 +19,4 @@ public interface Repository {
 
     public long count(Model entity);
 
-    public void registerModel(Model entity, String nameCollection);
 }

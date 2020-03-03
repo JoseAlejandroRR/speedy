@@ -5,6 +5,7 @@ import com.josealejandrorr.speedy.annotations.ModelEntity;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseQuery;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
 import com.josealejandrorr.speedy.contracts.data.repositories.Repository;
+import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.providers.ServiceProvider;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Logger;
@@ -28,6 +29,8 @@ public abstract class Model  {
 
     private ArrayList<String> selectFields;
 
+    private ILogger logger;
+
     private long limitFrom = 0;
 
     private long limitTo = -1;
@@ -42,8 +45,12 @@ public abstract class Model  {
 
     public Model()
     {
+        logger = Logger.getLogger();
         filters = new ArrayList<>();
-        serviceRepository = (DatabaseRepository) Application.container().getProvider(ServiceProvider.SERVICE_REPOSITORY);
+        serviceRepository = (DatabaseRepository) Application.container().getProvider(ServiceProvider.DATABASE_DRIVER_REPOSITORY);
+        if (serviceRepository == null) {
+            logger.error("Database Repository doesnt exist in the Application Container");
+        }
 
         Class c = this.getClass();
         Annotation an = c.getAnnotation(ModelEntity.class);
@@ -53,7 +60,6 @@ public abstract class Model  {
             this.fieldIndex = me.pkey();
             hasTimestamps = me.timestamps();
 
-            serviceRepository.registerModel(this, tableName);
         } else {
             Logger.getLogger().error("@ModelEntity must used in " + c.getName());
         }

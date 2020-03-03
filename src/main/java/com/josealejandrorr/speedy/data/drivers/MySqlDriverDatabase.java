@@ -1,20 +1,15 @@
 package com.josealejandrorr.speedy.data.drivers;
 
+import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.annotations.ModelEntity;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseQuery;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
-import com.josealejandrorr.speedy.contracts.data.repositories.Repository;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.data.EntityMapper;
 import com.josealejandrorr.speedy.data.entities.EntityFilter;
 import com.josealejandrorr.speedy.data.entities.FilterOperator;
-import com.josealejandrorr.speedy.database.Conexion;
 import com.josealejandrorr.speedy.data.entities.Model;
-import com.josealejandrorr.speedy.utils.Builder;
-import com.josealejandrorr.speedy.utils.Logger;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -52,6 +47,8 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
     public static boolean cacheMode = false;
 
     private ILogger logger;
+
+    private String urlConnection;
 
     public MySqlDriverDatabase(ILogger logger)
     {
@@ -212,20 +209,16 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
         return 0;
     }
 
-    @Override
-    public void registerModel(Model entity, String nameCollection) {
-        if (!collectionsMapper.containsValue(nameCollection)) {
-            System.out.println(entity.getClass().getName());
-            collectionsMapper.put(entity.getClass().getName(), nameCollection);
-        }
-    }
-
 
     protected boolean openConnection()
     {
         boolean result = false;
         try{
-            connection = DriverManager.getConnection(Conexion.url,Conexion.user,Conexion.pass);
+            connection = DriverManager.getConnection(
+                    Application.env("database.host"),
+                    Application.env("database.user"),
+                    Application.env("database.pass")
+            );
             if(connection!=null)
             {
                 result = true;

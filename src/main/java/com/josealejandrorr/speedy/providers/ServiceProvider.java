@@ -1,6 +1,9 @@
 package com.josealejandrorr.speedy.providers;
 
+import com.josealejandrorr.speedy.Application;
+import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
+import com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Logger;
 
@@ -44,6 +47,10 @@ public class ServiceProvider {
     {
         logger.debug("Calling Provider: " + key);
         if (providers.containsKey(key)) {
+            if (providers.get(key).getInstance() == null) {
+                logger.error("Provider '" + key +"' is NULL");
+                return null;
+            }
             logger.debug("PROVIDER ",providers.get(key).getInstance().toString());
             return providers.get(key).getInstance();
         } else {
@@ -58,11 +65,35 @@ public class ServiceProvider {
         providers.put(key, instance);
     }
 
+    public void setContextDefault()
+    {
+        DatabaseRepository orm = null;
+        if (Application.env("database.driver") != null) {
+            switch (Application.env("database.driver").toLowerCase())
+            {
+                case "mysql":
+                    orm = new MySqlDriverDatabase(logger);
+                    break;
+                default:
+                    logger.error("Database Driver unkown:"  + Application.env("driver"));
+                    break;
+            }
+            Provider providerORM = new Provider();
+            providerORM.create(orm);
+            registeProvider(DATABASE_DRIVER_REPOSITORY, providerORM);
+        } else {
+            logger.debug("Driver for Database wasnt configurated");
+        }
+
+    }
+
+
     /*public enum Providers {
         SERVICES_PROVIDERS,
         LOGGER
     }*/
 
     public final static String SERVICE_REPOSITORY = "service_repository";
+    public final static String DATABASE_DRIVER_REPOSITORY = "database_driver";
 
 }

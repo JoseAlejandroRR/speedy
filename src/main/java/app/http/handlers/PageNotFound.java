@@ -7,6 +7,6 @@ import com.josealejandrorr.speedy.web.Response;
 public class PageNotFound implements IRequestHandler {
 
     public void index(Request request, Response response) {
-        response.send("URL not exists", 404);
+        response.send("URL not exists22", 404);
     }
 }
