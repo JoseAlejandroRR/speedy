@@ -23,4 +23,13 @@ public class Product extends Model {
     public int stock;
 
     public int status;
+
+    public Category category()
+    {
+        if (category == null)
+        {
+            category = (Category) belongsTo(Category.class, "category_id");
+        }
+        return category;
+    }
 }

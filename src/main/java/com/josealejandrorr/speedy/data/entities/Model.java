@@ -36,6 +36,10 @@ public abstract class Model  {
 
     private boolean hasTimestamps = false;
 
+    public Date created_at;
+
+    public Date updated_at;
+
     public Model()
     {
         filters = new ArrayList<>();
@@ -86,7 +90,7 @@ public abstract class Model  {
         return this;
     }
 
-    public void findById(long id)
+    public Model findById(long id)
     {
 
         Optional<HashMap<String, Object>> map = serviceRepository.findById(this, id);
@@ -95,6 +99,7 @@ public abstract class Model  {
 
         System.out.println(this.toString());
 
+        return this;
     }
 
 
@@ -250,13 +255,45 @@ public abstract class Model  {
         query.limitTo = limitTo;
 
         Optional<ArrayList<HashMap>> results = serviceRepository.search(this, query);
+        resetQuery();
+
         if (results.isPresent()) {
             if (results.get().size() > 0) {
                 obj.setInstance(results.get().get(0));
+                return obj;
             }
         }
+
+        return null;
+    }
+
+    public Model belongsTo(Class clazz,String keyForeign)
+    {
+        Model obj = (Model) Builder.createInstance(clazz.getName());
+
+        this.join(obj.tableName,obj.tableName+"."+obj.fieldIndex, "=", String.valueOf(this.tableName+"."+keyForeign))
+                .select(obj.tableName+".*")
+                .where(this.tableName+"."+this.fieldIndex,"=", String.valueOf(this.key))
+                .take(1);
+
+        DatabaseQuery query = new DatabaseQuery();
+
+        query.fieldSelecteds = selectFields;
+        query.filters = filters;
+        query.tables = tables;
+        query.limitTo = limitTo;
+
+        Optional<ArrayList<HashMap>> results = serviceRepository.search(this, query);
         resetQuery();
-        return obj;
+
+        if (results.isPresent()) {
+            if (results.get().size() > 0) {
+                obj.setInstance(results.get().get(0));
+                return obj;
+            }
+        }
+
+        return null;
     }
 
 
@@ -270,16 +307,9 @@ public abstract class Model  {
 
                 if (map.containsKey(field.getName()))
                 {
-                    System.out.println(field.getType().toString());
-                    System.out.println(field.getName()+"="+map.get(field.getName()));
+                    //System.out.println(field.getType().toString());
+                    //System.out.println(field.getName()+"="+map.get(field.getName()));
                     field.setAccessible(true);
-                    /*if(field.getType().toString().contains("int") || field.getType().toString().contains("Integer")) field.set(this, Integer.parseInt(data.get(field.getName())));
-                    if(field.getType().toString().contains("Long")) field.set(this, Long.parseLong(map.get(field.getName())));
-                    if(field.getType().toString().contains("String")) field.set(this, String.valueOf(data.get(field.getName())));
-                    if(field.getType().toString().contains("double")) field.set(this, Double.parseDouble(data.get(field.getName())));
-                    if(field.getType().toString().contains("Date")){
-                        field.set(this, Builder.convertStringToDate((data.get(field.getName()))));
-                    }*/
                     field.set(this, map.get(field.getName()));
 
                     if (field.getName().equals(fieldIndex)) {
@@ -294,7 +324,20 @@ public abstract class Model  {
             }
         }
 
+        if (hasTimestamps) {
+            setTimestamps(this, map);
+        }
 
+    }
+
+    private void setTimestamps(Model model, Map<String, Object> map)
+    {
+        if (map.containsKey("created_at")) {
+            model.created_at = (Date) map.get("created_at");
+        }
+        if (map.containsKey("updated_at")) {
+            model.updated_at = (Date) map.get("updated_at");
+        }
     }
 
 }

@@ -3320,3 +3320,1123 @@ Debug 	 2020-03-02_01:55:31 	 -- SELECT products.* FROM categories,products WHER
  	
 Info 	 2020-03-02_01:55:32 	 Duration 52825 miliseconds using 20300 kb of memory 
  	
+Debug 	 2020-03-02_21:56:58 	 Register Middleware: auth 	
+Debug 	 2020-03-02_21:56:58 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_21:56:58 	 Register Provider: DB 	
+Info 	 2020-03-02_21:56:59 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_21:57:00 	 GET 	/customer 	[Accept-encoding, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_21:57:00 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:57:00 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_21:57:00 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:57:00 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_21:57:00 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:57:00 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_21:57:00 	 -- Query() -- 	
+Debug 	 2020-03-02_21:57:01 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_21:57:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:57:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_21:57:02 	 -- Query() -- 	
+Debug 	 2020-03-02_21:57:02 	 -- SELECT categories.* FROM products,categories WHERE  categories.category_id=products.category_id AND products.id='0'  LIMIT 0, 1 --
+ 	
+Error 	 2020-03-02_21:57:02 	 -- ERROR requestReader: Unknown column 'categories.category_id' in 'where clause' -- 	
+Info 	 2020-03-02_21:57:02 	 Duration 1255 miliseconds using 15214 kb of memory 
+ 	
+Info 	 2020-03-02_21:57:02 	 GET 	/favicon.ico 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Connection, Referer, Host, Sec-fetch-site, Pragma, Sec-fetch-mode, User-agent, Accept-language, Cache-control] 	
+Info 	 2020-03-02_21:57:02 	 URL: /favicon.ico not found 	httpCode: 404 	
+Info 	 2020-03-02_21:57:02 	 Duration 7 miliseconds using 0 kb of memory 
+ 	
+Debug 	 2020-03-02_21:59:45 	 Register Middleware: auth 	
+Debug 	 2020-03-02_21:59:45 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_21:59:45 	 Register Provider: DB 	
+Info 	 2020-03-02_21:59:46 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_21:59:47 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_21:59:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:59:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_21:59:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:59:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_21:59:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:59:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_21:59:47 	 -- Query() -- 	
+Debug 	 2020-03-02_21:59:48 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_21:59:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_21:59:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_21:59:48 	 -- Query() -- 	
+Debug 	 2020-03-02_21:59:48 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='0'  LIMIT 0, 1 --
+ 	
+Info 	 2020-03-02_21:59:48 	 Duration 1154 miliseconds using 15213 kb of memory 
+ 	
+Debug 	 2020-03-02_22:02:00 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:02:00 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:02:00 	 Register Provider: DB 	
+Info 	 2020-03-02_22:02:01 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:02:01 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:02:01 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:01 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:01 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:01 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:01 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:01 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:01 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:01 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:01 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:02 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:02:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:02 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:02:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:02 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:02:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:02 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:02:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:02:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:02 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='0'  LIMIT 0, 1 --
+ 	
+Info 	 2020-03-02_22:02:02 	 Duration 930 miliseconds using 16337 kb of memory 
+ 	
+Debug 	 2020-03-02_22:02:36 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:02:36 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:02:36 	 Register Provider: DB 	
+Info 	 2020-03-02_22:02:37 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:02:46 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:02:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:02:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:02:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:02:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:02:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:02:46 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:47 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:02:47 	 -- Query() -- 	
+Debug 	 2020-03-02_22:02:47 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:02:47 	 Duration 809 miliseconds using 15004 kb of memory 
+ 	
+Debug 	 2020-03-02_22:03:38 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:03:38 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:03:38 	 Register Provider: DB 	
+Info 	 2020-03-02_22:03:39 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:03:39 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:03:39 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:39 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:39 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:39 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:39 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:39 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:39 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:39 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:39 	 -- Query() -- 	
+Debug 	 2020-03-02_22:03:40 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:03:40 	 -- Query() -- 	
+Debug 	 2020-03-02_22:03:40 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:03:40 	 Duration 947 miliseconds using 15004 kb of memory 
+ 	
+Info 	 2020-03-02_22:03:40 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:03:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:03:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:03:40 	 -- Query() -- 	
+Debug 	 2020-03-02_22:03:40 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:03:40 	 -- Query() -- 	
+Debug 	 2020-03-02_22:03:40 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:03:40 	 Duration 53 miliseconds using 0 kb of memory 
+ 	
+Debug 	 2020-03-02_22:04:54 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:04:54 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:04:54 	 Register Provider: DB 	
+Info 	 2020-03-02_22:04:55 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:04:55 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:04:55 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:04:55 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:04:55 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:04:55 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:04:55 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:04:55 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:04:55 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:04:55 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:04:55 	 -- Query() -- 	
+Debug 	 2020-03-02_22:04:56 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:04:57 	 -- Query() -- 	
+Debug 	 2020-03-02_22:04:57 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:04:58 	 Duration 3586 miliseconds using 17780 kb of memory 
+ 	
+Info 	 2020-03-02_22:05:02 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:05:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:05:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:05:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:05:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@f59c90e 	
+Debug 	 2020-03-02_22:05:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:05:02 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:05:18 	 -- Query() -- 	
+Debug 	 2020-03-02_22:05:18 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:05:18 	 Duration 16257 miliseconds using 2679 kb of memory 
+ 	
+Debug 	 2020-03-02_22:05:30 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:05:31 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:05:31 	 Register Provider: DB 	
+Info 	 2020-03-02_22:05:31 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:05:36 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:05:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:05:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:05:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:05:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:05:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:05:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:05:37 	 -- SELECT categories.* FROM categories WHERE id = '2' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:06:21 	 -- Query() -- 	
+Debug 	 2020-03-02_22:06:21 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:07:03 	 Duration 87100 miliseconds using 19111 kb of memory 
+ 	
+Debug 	 2020-03-02_22:07:15 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:07:15 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:07:15 	 Register Provider: DB 	
+Info 	 2020-03-02_22:07:16 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:07:19 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:07:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2e399a34 	
+Debug 	 2020-03-02_22:07:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2e399a34 	
+Debug 	 2020-03-02_22:07:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2e399a34 	
+Debug 	 2020-03-02_22:07:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2e399a34 	
+Debug 	 2020-03-02_22:07:19 	 -- Query() -- 	
+Debug 	 2020-03-02_22:07:20 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:07:36 	 Duration 17022 miliseconds using 18980 kb of memory 
+ 	
+Debug 	 2020-03-02_22:07:41 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:07:41 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:07:41 	 Register Provider: DB 	
+Info 	 2020-03-02_22:07:42 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:07:43 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:07:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:07:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:07:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:07:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:07:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@76ed281b 	
+Debug 	 2020-03-02_22:08:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:08:02 	 -- SELECT products.* FROM products WHERE id = '2' LIMIT 1 --
+ 	
+Info 	 2020-03-02_22:09:10 	 Duration 86522 miliseconds using 18981 kb of memory 
+ 	
+Debug 	 2020-03-02_22:09:15 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:09:15 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:09:15 	 Register Provider: DB 	
+Info 	 2020-03-02_22:09:16 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:09:16 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:09:16 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:16 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:16 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:16 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:16 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:16 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:16 	 -- Query() -- 	
+Debug 	 2020-03-02_22:09:17 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:09:17 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:17 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Info 	 2020-03-02_22:09:17 	 Duration 853 miliseconds using 15197 kb of memory 
+ 	
+Info 	 2020-03-02_22:09:28 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:09:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:28 	 -- Query() -- 	
+Debug 	 2020-03-02_22:09:28 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:09:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Info 	 2020-03-02_22:09:28 	 Duration 45 miliseconds using 0 kb of memory 
+ 	
+Info 	 2020-03-02_22:09:30 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:09:30 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:30 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:30 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:30 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:30 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:30 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Debug 	 2020-03-02_22:09:30 	 -- Query() -- 	
+Debug 	 2020-03-02_22:09:30 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:09:30 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:30 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@7d0a7b5f 	
+Info 	 2020-03-02_22:09:30 	 Duration 46 miliseconds using 0 kb of memory 
+ 	
+Debug 	 2020-03-02_22:09:43 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:09:43 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:09:43 	 Register Provider: DB 	
+Info 	 2020-03-02_22:09:44 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:09:53 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:09:53 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:53 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@4c8c5497 	
+Debug 	 2020-03-02_22:09:53 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:53 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@4c8c5497 	
+Debug 	 2020-03-02_22:09:53 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:53 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@4c8c5497 	
+Debug 	 2020-03-02_22:09:53 	 -- Query() -- 	
+Debug 	 2020-03-02_22:09:54 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:09:54 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:54 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@4c8c5497 	
+Debug 	 2020-03-02_22:09:54 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:09:54 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@4c8c5497 	
+Debug 	 2020-03-02_22:09:54 	 -- Query() -- 	
+Debug 	 2020-03-02_22:09:54 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Info 	 2020-03-02_22:09:54 	 Duration 717 miliseconds using 16529 kb of memory 
+ 	
+Debug 	 2020-03-02_22:11:23 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:11:23 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:11:23 	 Register Provider: DB 	
+Info 	 2020-03-02_22:11:25 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:11:25 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 -- Query() -- 	
+Debug 	 2020-03-02_22:11:25 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 -- Query() -- 	
+Debug 	 2020-03-02_22:11:25 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 -- Query() -- 	
+Debug 	 2020-03-02_22:11:25 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:11:25 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:11:25 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Info 	 2020-03-02_22:11:25 	 Duration 964 miliseconds using 15196 kb of memory 
+ 	
+Info 	 2020-03-02_22:14:36 	 GET 	/customer 	[Accept-encoding, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:36 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:36 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:36 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Info 	 2020-03-02_22:14:36 	 Duration 70 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:14:40 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:40 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:40 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:40 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Info 	 2020-03-02_22:14:40 	 Duration 82 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:14:42 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:42 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:42 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:42 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Info 	 2020-03-02_22:14:42 	 Duration 71 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:14:45 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:45 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:45 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:45 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:45 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:45 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Info 	 2020-03-02_22:14:45 	 Duration 59 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:14:49 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:49 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:49 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 -- Query() -- 	
+Debug 	 2020-03-02_22:14:49 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Debug 	 2020-03-02_22:14:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:14:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6c9da313 	
+Info 	 2020-03-02_22:14:49 	 Duration 65 miliseconds using 1332 kb of memory 
+ 	
+Debug 	 2020-03-02_22:15:55 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:15:55 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:15:55 	 Register Provider: DB 	
+Info 	 2020-03-02_22:15:56 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:15:56 	 GET 	/customer 	[Accept-encoding, Cookie, Sec-fetch-dest, Accept, Sec-fetch-user, Connection, Host, Sec-fetch-site, Sec-fetch-mode, User-agent, Accept-language, Upgrade-insecure-requests, Cache-control] 	
+Debug 	 2020-03-02_22:15:56 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:15:56 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@5acd5044 	
+Debug 	 2020-03-02_22:15:56 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:15:56 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@5acd5044 	
+Debug 	 2020-03-02_22:15:56 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:15:56 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@5acd5044 	
+Debug 	 2020-03-02_22:15:57 	 -- INSERT INTO products (category_id,price,name,description,stock,brand_id,status) VALUES ('1','480.5','Intel i9 9900KS malo','Procesador Intel de 10ma generacion','200','0','1') --
+ 	
+Debug 	 2020-03-02_22:15:57 	 -- Query() -- 	
+Debug 	 2020-03-02_22:15:57 	 -- SELECT products.* FROM products ORDER BY id DESC LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:15:57 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:15:57 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@5acd5044 	
+Info 	 2020-03-02_22:15:57 	 Duration 932 miliseconds using 15009 kb of memory 
+ 	
+Debug 	 2020-03-02_22:17:01 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:17:01 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:17:01 	 Register Provider: DB 	
+Info 	 2020-03-02_22:17:02 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:17:03 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:17:03 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:17:03 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@65e83b4a 	
+Debug 	 2020-03-02_22:17:03 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:17:03 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@65e83b4a 	
+Debug 	 2020-03-02_22:17:03 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:17:03 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@65e83b4a 	
+Debug 	 2020-03-02_22:17:03 	 -- Query() -- 	
+Debug 	 2020-03-02_22:17:04 	 -- SELECT products.* FROM products WHERE id = '9' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:17:04 	 -- DELETE FROM products WHERE id = '9' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:17:04 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:17:04 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@65e83b4a 	
+Info 	 2020-03-02_22:17:04 	 Duration 982 miliseconds using 15209 kb of memory 
+ 	
+Debug 	 2020-03-02_22:23:16 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:23:16 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:23:16 	 Register Provider: DB 	
+Info 	 2020-03-02_22:23:17 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:23:17 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:23:17 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:17 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Debug 	 2020-03-02_22:23:17 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:17 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Debug 	 2020-03-02_22:23:17 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:17 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Debug 	 2020-03-02_22:23:17 	 -- Query() -- 	
+Debug 	 2020-03-02_22:23:18 	 -- SELECT products.* FROM products WHERE id = '9' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:23:18 	 -- DELETE FROM products WHERE id = '0' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:23:18 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:18 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Info 	 2020-03-02_22:23:18 	 Duration 895 miliseconds using 14955 kb of memory 
+ 	
+Info 	 2020-03-02_22:23:22 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:23:22 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:22 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Debug 	 2020-03-02_22:23:22 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:22 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Debug 	 2020-03-02_22:23:22 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:22 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Debug 	 2020-03-02_22:23:22 	 -- Query() -- 	
+Debug 	 2020-03-02_22:23:22 	 -- SELECT products.* FROM products WHERE id = '9' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:23:22 	 -- DELETE FROM products WHERE id = '0' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:23:22 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:23:22 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@77d3758e 	
+Info 	 2020-03-02_22:23:22 	 Duration 46 miliseconds using 0 kb of memory 
+ 	
+Debug 	 2020-03-02_22:24:16 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:24:16 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:24:16 	 Register Provider: DB 	
+Info 	 2020-03-02_22:24:17 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:24:19 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:24:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:24:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Debug 	 2020-03-02_22:24:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:24:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Debug 	 2020-03-02_22:24:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:24:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Debug 	 2020-03-02_22:24:19 	 -- Query() -- 	
+Debug 	 2020-03-02_22:24:20 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:24:20 	 InvocationTargetException: java.lang.reflect.InvocationTargetException 	
+Debug 	 2020-03-02_22:24:43 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:24:44 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:24:44 	 Register Provider: DB 	
+Info 	 2020-03-02_22:24:44 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:24:56 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:24:56 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:24:56 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@56e6299b 	
+Debug 	 2020-03-02_22:25:12 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:25:12 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@56e6299b 	
+Debug 	 2020-03-02_22:25:19 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:25:19 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@56e6299b 	
+Debug 	 2020-03-02_22:25:28 	 -- Query() -- 	
+Debug 	 2020-03-02_22:25:29 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:25:31 	 InvocationTargetException: java.lang.reflect.InvocationTargetException 	
+Debug 	 2020-03-02_22:25:36 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:25:36 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:25:36 	 Register Provider: DB 	
+Info 	 2020-03-02_22:25:37 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:25:40 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:25:40 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:25:40 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6a637dd5 	
+Debug 	 2020-03-02_22:25:56 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:25:56 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6a637dd5 	
+Debug 	 2020-03-02_22:25:56 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:25:56 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@6a637dd5 	
+Debug 	 2020-03-02_22:25:56 	 -- Query() -- 	
+Debug 	 2020-03-02_22:26:25 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:26:25 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:26:25 	 Register Provider: DB 	
+Info 	 2020-03-02_22:26:26 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:26:28 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:26:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:26:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2b33d004 	
+Debug 	 2020-03-02_22:26:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:26:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2b33d004 	
+Debug 	 2020-03-02_22:26:28 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:26:28 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@2b33d004 	
+Debug 	 2020-03-02_22:26:28 	 -- Query() -- 	
+Debug 	 2020-03-02_22:26:29 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:27:15 	 InvocationTargetException: java.lang.reflect.InvocationTargetException 	
+Debug 	 2020-03-02_22:28:00 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:28:00 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:28:00 	 Register Provider: DB 	
+Info 	 2020-03-02_22:28:01 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:28:02 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:28:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:28:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Debug 	 2020-03-02_22:28:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:28:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Debug 	 2020-03-02_22:28:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:28:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Debug 	 2020-03-02_22:28:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:28:03 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:28:03 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:28:03 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@34886107 	
+Info 	 2020-03-02_22:28:03 	 Duration 1010 miliseconds using 15001 kb of memory 
+ 	
+Debug 	 2020-03-02_22:31:36 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:31:36 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:31:36 	 Register Provider: DB 	
+Info 	 2020-03-02_22:31:37 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:31:43 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:31:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:31:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:31:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:31:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:31:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:31:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:31:43 	 -- Query() -- 	
+Debug 	 2020-03-02_22:31:43 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Error 	 2020-03-02_22:31:43 	 Error trying parse 'Mon Mar 02 22:31:43 ART 2020' in Date Objects 	
+Debug 	 2020-03-02_22:31:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:31:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:31:43 	 Duration 704 miliseconds using 15261 kb of memory 
+ 	
+Debug 	 2020-03-02_22:32:04 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:32:04 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:32:04 	 Register Provider: DB 	
+Info 	 2020-03-02_22:32:05 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:32:41 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:32:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:32:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:32:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:32:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:32:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:32:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Debug 	 2020-03-02_22:32:41 	 -- Query() -- 	
+Debug 	 2020-03-02_22:32:42 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:32:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:32:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@46eea637 	
+Info 	 2020-03-02_22:32:42 	 Duration 694 miliseconds using 15001 kb of memory 
+ 	
+Debug 	 2020-03-02_22:42:51 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:42:51 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:42:51 	 Register Provider: DB 	
+Info 	 2020-03-02_22:42:52 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:43:02 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:43:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:02 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:43:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:02 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:43:02 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:02 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:02 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:02 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:43:03 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:03 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:03 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:03 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Info 	 2020-03-02_22:43:03 	 Duration 725 miliseconds using 16341 kb of memory 
+ 	
+Info 	 2020-03-02_22:43:07 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:07 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:07 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:07 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:07 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:07 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Info 	 2020-03-02_22:43:07 	 Duration 67 miliseconds using 0 kb of memory 
+ 	
+Info 	 2020-03-02_22:43:08 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:08 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:08 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:08 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:08 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:08 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Info 	 2020-03-02_22:43:08 	 Duration 79 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:43:09 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:09 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:09 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:09 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:09 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:09 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Info 	 2020-03-02_22:43:09 	 Duration 64 miliseconds using 1339 kb of memory 
+ 	
+Info 	 2020-03-02_22:43:11 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:11 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:11 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:11 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Debug 	 2020-03-02_22:43:11 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:11 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@275455d9 	
+Info 	 2020-03-02_22:43:11 	 Duration 57 miliseconds using 1331 kb of memory 
+ 	
+Debug 	 2020-03-02_22:43:43 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:43:43 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:43:43 	 Register Provider: DB 	
+Info 	 2020-03-02_22:43:43 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:43:49 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:43:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:43:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:43:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:43:50 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:50 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:43:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:43:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:43:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:43:50 	 -- Query() -- 	
+Debug 	 2020-03-02_22:43:50 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='0'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:43:50 	 InvocationTargetException: java.lang.reflect.InvocationTargetException 	
+Debug 	 2020-03-02_22:54:04 	 Register Middleware: auth 	
+Debug 	 2020-03-02_22:54:04 	 Register Provider: service_repository 	
+Debug 	 2020-03-02_22:54:04 	 Register Provider: DB 	
+Info 	 2020-03-02_22:54:05 	 com.josealejandrorr.speedy.web.Server 	Server start at http://localhost:9000 	
+Info 	 2020-03-02_22:54:36 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:36 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:36 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:36 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:36 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:36 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:36 	 Duration 760 miliseconds using 16336 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:41 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:41 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:41 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:41 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:41 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:41 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:41 	 Duration 80 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:42 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:42 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:42 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:42 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:42 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:42 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:42 	 Duration 71 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:43 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:43 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:43 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:43 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:43 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:43 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:43 	 Duration 65 miliseconds using 1334 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:44 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:44 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:44 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:44 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:44 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:44 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:44 	 Duration 84 miliseconds using 0 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:46 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:46 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:46 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:46 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:46 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:46 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:46 	 Duration 109 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:47 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:47 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:47 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:47 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:47 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:47 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:47 	 Duration 69 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:48 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:48 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:48 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:48 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:48 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:48 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:48 	 Duration 48 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:49 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:49 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:49 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:49 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:49 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:49 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:49 	 Duration 86 miliseconds using 1331 kb of memory 
+ 	
+Info 	 2020-03-02_22:54:50 	 GET 	/customer 	[Accept-encoding, Cookie, Accept, Connection, Host, User-agent, Postman-token, Cache-control] 	
+Debug 	 2020-03-02_22:54:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:50 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:50 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:50 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:51 	 -- SELECT products.* FROM products WHERE id = '8' LIMIT 1 --
+ 	
+Debug 	 2020-03-02_22:54:51 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:51 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:51 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:51 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:51 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:51 	 -- SELECT categories.* FROM products,categories WHERE  categories.id=products.category_id AND products.id='8'  LIMIT 0, 1 --
+ 	
+Debug 	 2020-03-02_22:54:51 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:51 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:51 	 -- Query() -- 	
+Debug 	 2020-03-02_22:54:51 	 -- SELECT products.* FROM categories,products WHERE  products.category_id=categories.id AND categories.id='2'   --
+ 	
+Debug 	 2020-03-02_22:54:51 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:51 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Debug 	 2020-03-02_22:54:51 	 Calling Provider: service_repository 	
+Debug 	 2020-03-02_22:54:51 	 PROVIDER  	com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase@55faf82d 	
+Info 	 2020-03-02_22:54:51 	 Duration 79 miliseconds using 1331 kb of memory 
+ 	

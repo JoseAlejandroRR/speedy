@@ -79,16 +79,6 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
         return Optional.ofNullable(null);
     }
 
-    private void setTimestamps(Repository model, Map<String, String> map)
-    {
-        /*if (map.containsKey("created_at")) {
-            model.created_at = Builder.convertStringToDate(map.get("created_at"));
-        }
-        if (map.containsKey("updated_at")) {
-            model.updated_at = Builder.convertStringToDate(map.get("updated_at"));
-        }*/
-    }
-
     @Override
     public boolean create(Model entity) {
         String fieldsSql = "";
@@ -149,16 +139,12 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
     @Override
     public Optional search(Model entity, DatabaseQuery query)
     {
-        //String filtersCondition = "WHERE " + formatFilter(query.filters.get(0).field, query.filters.get(0).operator, query.filters.get(0).value, false);
         String filtersCondition = "WHERE" ;
-        //query.filters.remove(0);
         int fi = 0;
         for(EntityFilter f: query.filters){
             String conditional = (f.conditional == FilterOperator.AND)? "AND" : "OR";
             if (fi == 0) conditional = "";
-            //String value = (f.isField)? f.value : "'"+f.value+"'";
             String s =  String.format(" %s %s", conditional, formatFilter(f.field, f.operator, f.value, f.isField));
-            //return s;
             filtersCondition = filtersCondition + s;
             fi++;
         }
@@ -187,20 +173,9 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                 "",
                 parserLimit(query.limitFrom, query.limitTo));
 
-        // executeRequest(sql, params);
         ArrayList<HashMap<String, Object>> data = resultSetToArrayList(query(sql, params));
 
         return Optional.ofNullable(data);
-    }
-
-    @Override
-    public Optional hasOne(Model entityParent, Model entityChild) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional hasMany(Model entityParent, Model entityChild) {
-        return Optional.empty();
     }
 
     private String parserLimit(long from, long to)
@@ -329,7 +304,6 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                 this.affected_rows = this.requestNonQuery();
             }
             success = true;
-            this.closeConnection();
 
         } catch(Exception error)
         {
@@ -341,12 +315,12 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
 
     protected void closeConnection()
     {
-        /*try {
+        try {
             this.connection.close();
         } catch (SQLException e) {
-            this.showConsole("Error Close Connection: " + e.getMessage());
+           // this.showConsole("Error Close Connection: " + e.getMessage());
             e.printStackTrace();
-        }*/
+        }
         this.isConnected = false;
         this.connection = null;
     }
@@ -417,8 +391,8 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                     switch(md.getColumnTypeName(i))
                     {
                         case "TIMESTAMP":
-                            String date = String.valueOf(rs.getTimestamp(i));
-                            date = date.replace(".0","");
+                            Timestamp stamp = new Timestamp(System.currentTimeMillis());
+                            Date date = new Date(stamp.getTime());
                             row.put(md.getColumnName(i).toLowerCase(), date);
                             //System.out.println(md.getColumnName(i)+"="+date);
                             break;
@@ -453,6 +427,7 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
         } catch (Exception e) {
             e.printStackTrace();
         }
+        closeConnection();
         return list;
     }
 

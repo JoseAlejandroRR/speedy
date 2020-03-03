@@ -260,21 +260,25 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
         //p1.save();
 
         Product p2 = new Product();
-        p2.name = "Intel i9 9900KS";
+        p2.name = "Intel i9 9900KS malo";
         p2.description = "Procesador Intel de 10ma generacion";
         p2.price = 480.50;
         p2.status = 1;
         p2.stock = 200;
         p2.category_id = 1;
         p2.brand_id = 0;
-        //p2.findById(8);
+        p2.findById(8);
         //p2.save();
 
         Category category = new Category();
-        category.findById(2);
-        category.products();
-        category.product();
+       // category.findById(2);
+        //category.products();
+        //category.product();
 
-        res.json(category);
+        //p2.findById(2);
+        //
+         p2.category().products();
+
+        res.json(p2);
     }
 }
