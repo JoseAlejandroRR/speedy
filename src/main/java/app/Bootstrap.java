@@ -6,6 +6,7 @@ import app.http.Routes;
 import app.http.handlers.PageNotFound;
 import app.models.User;
 import com.josealejandrorr.speedy.Application;
+import com.josealejandrorr.speedy.config.ApplicationConfig;
 import com.josealejandrorr.speedy.database.Conexion;
 import com.josealejandrorr.speedy.providers.ServiceProvider;
 import com.josealejandrorr.speedy.utils.Logger;
@@ -13,27 +14,19 @@ import com.josealejandrorr.speedy.web.Server;
 
 public class Bootstrap {
 
-    private static String urlConfigurationFile = "./application.config";
+    //private static String urlConfigurationFile = "./application.config";
     public static void run()
     {
         System.out.println("Init");
-        Conexion conexion = new Conexion();
-        conexion.modeDebug = true;
+        //Conexion conexion = new Conexion();
+        //conexion.modeDebug = true;
 
-        int appModeLogger = Logger.DEBUG;
-        Logger logger = new Logger(appModeLogger, "./application.log");
+        ApplicationConfig config = new ApplicationConfig("./application.config");
 
-        //Logger.getLogger().debug("App Init");
+        Logger logger = new Logger();
+        logger.setMode(config.data().get("application.mode"));
+        logger.setFileStorage(config.data().get("application.log"));
 
-        /*User user = new User();
-
-        user.name = "Jose";
-        user.lastname = "Realza";
-        user.document = "95950137";
-        user.status = 1;
-        user.save();
-
-        System.out.println("END");*/
         Server server = new Server(logger, new PageNotFound());
 
         ServiceProvider container = new ServiceProvider();
@@ -42,13 +35,14 @@ public class Bootstrap {
 
         container.setLogger(logger);
 
-        Application app = new Application(server, container, urlConfigurationFile, logger);
+        Application app = new Application(container, config);
+        app.setServer(server);
+        app.setLogger(logger);
+
 
         Routes routes = new Routes(server.getRouterHandler());
 
         //routes.getRouter().setHandler404(new PageNotFound());
-
-        //server.setRouterHandler(routes.getRouter());
 
         server.registerMiddlewares(Middlewares.getList());
 

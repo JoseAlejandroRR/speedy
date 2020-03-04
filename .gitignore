@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/intellij
 # Edit at https://www.gitignore.io/?templates=intellij
 application.log
-application.config
+#application.config
 
 target/
 ### Intellij ###

@@ -32,6 +32,11 @@ public class Logger implements ILogger {
 
     private static Logger instance;
 
+    public Logger()
+    {
+
+    }
+
     public Logger(int mode, String filename)
     {
         this.mode = mode;
@@ -39,9 +44,30 @@ public class Logger implements ILogger {
         if(mode == INFO) {
             modeLevel = MODE_INFO;
         }
-        this.fileName = filename;
+        //this.fileName = filename;
         Path file = Paths.get(fileName);
         instance = this;
+    }
+
+    @Override
+    public void setMode(String mode) {
+        int m = DEBUG;
+        switch (mode.toLowerCase())
+        {
+            case "debug":
+                m = DEBUG;
+                break;
+
+            case "production":
+                m = INFO;
+                break;
+        }
+        this.mode = m;
+    }
+
+    @Override
+    public void setFileStorage(String url) {
+        this.fileName = url;
     }
 
     public void debug(String... strings) {
