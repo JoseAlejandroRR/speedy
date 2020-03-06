@@ -25,10 +25,10 @@ public class Routes {
         // router.get("/web","auth" ,  new HomeHandler("ROOT URL"));
 
         // router.get("/client","guest" ,  new HomeHandler("ROOT URL"));
-        router.get("/uploads", HomeHandler.class, "upload").validator(HomeValidator.class);
+        router.get("/uploads", HomeHandler.class, "upload");
+                //.validator(HomeValidator.class);
 
-        router.get("/test", HomeHandler.class, "action")
-                .middleware("auth");
+        router.get("/test", HomeHandler.class, "action").middleware("auth");
 
         router.get("/cache", HomeHandler.class, "demo");
 

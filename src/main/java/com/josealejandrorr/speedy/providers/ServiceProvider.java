@@ -13,14 +13,11 @@ import com.josealejandrorr.speedy.utils.Logger;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ServiceProvider {
 
-    private static HashMap<String, Provider> providers;
+    public static HashMap<String, Provider> providers;
 
     protected ILogger logger;
 
@@ -95,12 +92,28 @@ public class ServiceProvider {
                 System.out.println("Field = "+f.getName());
                 AutoLoad autoload = f.getAnnotation(AutoLoad.class);
                 if (autoload != null) {
-                    System.out.println("Field " +f.getName() + " need load "+ f.getType() + " using " + providers.get(f.getType().getName()).getInstance().toString() );
-                    try {
-                        f.setAccessible(true);
-                        f.set(c, (ProductService)(providers.get(f.getType().getName()).getInstance()));
-                    } catch (IllegalArgumentException | IllegalAccessException e){
-                        logger.error("Error injecting "+c.getClass().getName()+" by: " +e.getMessage());
+                    Object obj = null;
+                    if (f.getType().isInterface()) {
+                        Optional<Provider> optPr = ServiceProvider.providers.values().stream().filter(p -> {
+                            return Arrays.stream(p.getInstance().getClass().getInterfaces())
+                                    .filter(o -> o.getName().equals(f.getType().getName())).count() > 0;
+                        }).findFirst();
+
+                        if (optPr.isPresent()) {
+                            System.out.println("Field HAndler " +f.getName() + " need load "+ f.getType() + " using " + f.getClass().getName());
+                            obj = optPr.get().getInstance();
+                        }
+                    } else {
+                        obj = Application.container().getProvider(f.getType().getName());
+                    }
+                    if (obj != null) {
+                        try {
+                            System.out.println("HAField " +f.getName() + " need load "+ f.getType() + " using " + obj.toString());
+                            f.setAccessible(true);
+                            f.set(this,obj);
+                        } catch (IllegalArgumentException | IllegalAccessException e){
+                            logger.error("Error injecting "+this.getClass().getName()+" by: " +e.getMessage());
+                        }
                     }
                 }
             });

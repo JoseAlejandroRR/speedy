@@ -233,7 +233,7 @@ public class RouterHandler implements HttpHandler {
                 b = true;
                 //logger.debug("WORKS " + matcher.group());
             }
-            //System.out.println(uri.split("__").length+"=="+path.split("__").length);
+
             if(b && uri.split("__").length==path.split("__").length) {
                 logger.debug("ROUTE EXIST \n");
 
@@ -292,7 +292,7 @@ public class RouterHandler implements HttpHandler {
             //handlerInstance.setContainer(container);
         } catch (Exception ex)
         {
-            logger.debug("Handler Wrong: "+handler.getClass().getName());
+            logger.debug("Handler Wrong: "+handler.getClass().getName() + " by: " + ex.toString());
         }
 
         if (handlerInstance != null) {

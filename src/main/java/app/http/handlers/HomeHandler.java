@@ -1,5 +1,6 @@
 package app.http.handlers;
 
+import app.contracts.IProductService;
 import app.models.*;
 import app.services.ProductService;
 import com.josealejandrorr.speedy.annotations.AutoLoad;
@@ -21,7 +22,7 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
     private String message;
 
     @AutoLoad
-    private ProductService productService;
+    private IProductService productService;
 
     public HomeHandler()
     {

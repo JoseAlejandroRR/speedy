@@ -34,7 +34,7 @@ public class Logger implements ILogger {
 
     public Logger()
     {
-
+        instance = this;
     }
 
     public Logger(int mode, String filename)
@@ -68,6 +68,7 @@ public class Logger implements ILogger {
     @Override
     public void setFileStorage(String url) {
         this.fileName = url;
+        Path file = Paths.get(fileName);
     }
 
     public void debug(String... strings) {

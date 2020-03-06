@@ -1,11 +1,12 @@
 package app.services;
 
+import app.contracts.IProductService;
 import com.josealejandrorr.speedy.annotations.Service;
 
 import java.util.HashMap;
 
 @Service
-public class ProductService {
+public class ProductService implements IProductService {
 
     public String name = "Product Manager Class";
 
