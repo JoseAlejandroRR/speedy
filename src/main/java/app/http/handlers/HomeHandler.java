@@ -22,7 +22,7 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
     private String message;
 
     @AutoLoad
-    private IProductService productService;
+    private ProductService productService;
 
     public HomeHandler()
     {
@@ -88,6 +88,11 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
         res.send("works");
         //res.json(user);
 
+    }
+
+    public Response vars(Request req, Response res)
+    {
+        return res.send("user_id="+req.query.get("user_id")+" with adress="+req.query.get("direction"));
     }
 
     public void getUser(Request req, Response res)

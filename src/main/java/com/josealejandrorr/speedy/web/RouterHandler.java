@@ -94,7 +94,8 @@ public class RouterHandler implements HttpHandler {
         }
 
         logger.info(request.method, request.url, request.headers.keySet().toString());
-        int index = existRoute(request.url);
+        //int index = existRoute(request.url);
+        int index = getRouteIndexByUrl(request.url);
 
         if (index >= 0) {
             //int n = routes.indexOf(request.url);
@@ -137,12 +138,19 @@ public class RouterHandler implements HttpHandler {
                 }
 
                 if (!prevent) {
-                    if (routeParams != null) {
-                        for(Map.Entry<String, String> item : routeParams.entrySet())
+                    routeParams = getVars(
+                            request.url,
+                            routes.get(
+                                    getRouteIndexByUrl(request.url)
+                            )
+                    );
+                    if (routeParams.size() > 0) {
+                        request.query.putAll(routeParams);
+                        /*for(Map.Entry<String, String> item : routeParams.entrySet())
                         {
                             //logger.debug("var", item.getKey(), item.getValue());
                             request.query.put(item.getKey(),item.getValue());
-                        }
+                        }*/
                     }
 
                     if (route.methodHandlerName==null) {
@@ -190,88 +198,46 @@ public class RouterHandler implements HttpHandler {
         }
     }
 
-
-    public int existRoute(String url)
+    public int getRouteIndexByUrl(String url)
     {
-        Pattern p1 = Pattern.compile("\\[(.*?)\\]");
-        Pattern p2 = null;
-        Matcher matcher = null;
-        String uri = url.split("\\?")[0].replaceAll("/","__").trim();
+
         Iterator it = routes.iterator();
-        int n = 0;
-        int many = 0;
-        int k = 0;
-        String[] keys = null;
-        String[] values = null;
-        int varTotals = 0;
+        int  i = 0;
         while(it.hasNext())
         {
-            String path = (String) it.next();
-            path = path.replaceAll("/","__").trim();
-            matcher = p1.matcher(path);
-            if(path.trim().equals(uri.trim())) {
-                //logger.debug("CHECK",path,uri);
-                return n;
-            }
+            String uri = (String) it.next();
+            uri = uri.replaceAll("/","\\\\\\/");
+            String patternString = uri.replaceAll("\\[\\w*\\]","(\\\\\\w*)");
+            Pattern p = Pattern.compile(patternString);
+            Matcher m = p.matcher(url);
 
-            many = path.indexOf("[");
-            keys = new String[0];
-            if(many > 0) keys = new String[many];
-
-            while(matcher.find()) {
-                keys[k] = matcher.group().toString().replace("[","").replace("]","");
-                //logger.debug("FOUND ", matcher.group());
-                path = path.replace(matcher.group(), "(.*?)");
-                k++;
-            }
-            //.debug("CHECKING " + uri, path);
-
-            p2 = Pattern.compile(path);
-            matcher = p2.matcher(uri);
-            boolean b = false;
-            while(matcher.find()) {
-                b = true;
-                //logger.debug("WORKS " + matcher.group());
-            }
-
-            if(b && uri.split("__").length==path.split("__").length) {
-                logger.debug("ROUTE EXIST \n");
-
-                String[] nodes = path.split("__");
-
-                for(String node : nodes)
-                {
-                    if (node.trim().length() > 0) {
-                        //logger.debug("KEY",node);
-                        uri = uri.replace(node,"").replace("____","__");
-                    }
+            while(m.find()) {
+                String f = m.group();
+                if (f.equals(url)) {
+                    return i;
                 }
-
-                String[] vars = uri.split("__");
-                routeParams = new HashMap<String, String>();
-
-                for(String var : vars)
-                {
-                    if (var.trim().length() > 0) {
-                        //logger.debug("VALUE",var);
-                        //uri = uri.replace(var,"");
-                        varTotals++;
-                    }
-                }
-                for(int i = 0; i < varTotals; i++)
-                {
-                    //logger.debug("add",keys[i],vars[i+1]);
-                    routeParams.put(keys[i],vars[i+1]);
-                }
-
-                return n;
-            } else {
-                //logger.debug("ROUTE NOT EXIST");
             }
-            n++;
+            i++;
         }
-
         return -1;
+    }
+
+    private static HashMap<String, String> getVars(String url, String path)
+    {
+
+        HashMap<String, String> vars = new HashMap<>();
+
+        String[] ks = path.split("/");
+        String[] vs = url.split("/");
+
+        for(int i = 0; i < ks.length; i++)
+        {
+            if(!ks[i].equals(vs[i])) {
+                //System.out.println(ks[i].replaceFirst("\\[","").replaceFirst("\\]","")+"="+vs[i]);
+                vars.put(ks[i].replaceFirst("\\[","").replaceFirst("\\]",""),vs[i]);
+            }
+        }
+        return vars;
     }
 
 
@@ -297,7 +263,7 @@ public class RouterHandler implements HttpHandler {
 
         if (handlerInstance != null) {
 
-            if (this.existRoute(url) < 0) {
+            if (getRouteIndexByUrl(url) < 0) {
                 routesMap.add(new Route(METHOD_GET, url, handlerInstance, methodName));
                 routes.add(url);
             }
@@ -315,7 +281,7 @@ public class RouterHandler implements HttpHandler {
 
     public void post(String url, IRequestHandler handler, String methodName)
     {
-        if (existRoute(url) < 0) {
+        if (getRouteIndexByUrl(url) < 0) {
             routesMap.add(new Route(METHOD_POST, url, handler, methodName));
             routes.add(url);
         }

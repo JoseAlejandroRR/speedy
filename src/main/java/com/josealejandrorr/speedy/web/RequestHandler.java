@@ -40,9 +40,9 @@ public class RequestHandler implements IRequestHandler {
     private void autloadClass()
     {
         Field[] fields = this.getClass().getDeclaredFields();
-        System.out.println("AUTOLOADER = "+this.getClass().getName());
+        //System.out.println("AUTOLOADER = "+this.getClass().getName());
         Arrays.stream(fields).forEach(f ->{
-            System.out.println("HAField = "+f.getName());
+            //System.out.println("HAField = "+f.getName());
             AutoLoad autoload = f.getAnnotation(AutoLoad.class);
             if (autoload != null) {
                 Object obj = null;
@@ -53,7 +53,7 @@ public class RequestHandler implements IRequestHandler {
                     }).findFirst();
 
                     if (optPr.isPresent()) {
-                        System.out.println("Field HAndler " +f.getName() + " need load "+ f.getType() + " using " + f.getClass().getName());
+                        //System.out.println("Field HAndler " +f.getName() + " need load "+ f.getType() + " using " + f.getClass().getName());
                         obj = optPr.get().getInstance();
                     }
                 } else {
@@ -61,7 +61,7 @@ public class RequestHandler implements IRequestHandler {
                 }
                 if (obj != null) {
                     try {
-                        System.out.println("HAField " +f.getName() + " need load "+ f.getType() + " using " + obj.toString());
+                        //System.out.println("HAField " +f.getName() + " need load "+ f.getType() + " using " + obj.toString());
                         f.setAccessible(true);
                         f.set(this,obj);
                     } catch (IllegalArgumentException | IllegalAccessException e){

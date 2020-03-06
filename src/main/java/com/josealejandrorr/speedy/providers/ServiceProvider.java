@@ -84,12 +84,12 @@ public class ServiceProvider {
         });
 
         providers.values().stream().map(p -> p.getInstance()).forEach(c -> {
-            System.out.println("Creating: " + c.getClass().getName());
+            //System.out.println("Creating: " + c.getClass().getName());
 
             Field[] fields = c.getClass().getDeclaredFields();
 
             Arrays.stream(fields).forEach(f ->{
-                System.out.println("Field = "+f.getName());
+                //System.out.println("Field = "+f.getName());
                 AutoLoad autoload = f.getAnnotation(AutoLoad.class);
                 if (autoload != null) {
                     Object obj = null;
@@ -100,7 +100,7 @@ public class ServiceProvider {
                         }).findFirst();
 
                         if (optPr.isPresent()) {
-                            System.out.println("Field HAndler " +f.getName() + " need load "+ f.getType() + " using " + f.getClass().getName());
+                            //System.out.println("Field HAndler " +f.getName() + " need load "+ f.getType() + " using " + f.getClass().getName());
                             obj = optPr.get().getInstance();
                         }
                     } else {
@@ -108,13 +108,14 @@ public class ServiceProvider {
                     }
                     if (obj != null) {
                         try {
-                            System.out.println("HAField " +f.getName() + " need load "+ f.getType() + " using " + obj.toString());
+                            //System.out.println("HAField " +f.getName() + " need load "+ f.getType() + " using " + obj.toString());
                             f.setAccessible(true);
-                            f.set(this,obj);
+                            f.set(c,obj);
                         } catch (IllegalArgumentException | IllegalAccessException e){
                             logger.error("Error injecting "+this.getClass().getName()+" by: " +e.getMessage());
                         }
                     }
+
                 }
             });
         });
