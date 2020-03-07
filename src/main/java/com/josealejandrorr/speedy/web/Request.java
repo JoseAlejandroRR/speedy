@@ -69,6 +69,10 @@ public class Request {
             Logger.getLogger().error("Parse Body Request: " + e.getMessage());
             return body;
         }
+        body = Builder.convertJsonToHashMap(bodyRaw);
+        System.out.println("==============");
+        System.out.println(bodyRaw.trim());
+        System.out.println("==============");
         String[] raw = bodyRaw.split("--------------------");
         Pattern pValue;
         boolean isFile = false;

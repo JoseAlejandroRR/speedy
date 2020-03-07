@@ -1,6 +1,7 @@
 package com.josealejandrorr.speedy.web;
 
 
+import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.contracts.http.IMiddleware;
 import com.josealejandrorr.speedy.contracts.http.IRequestValidator;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
@@ -154,9 +155,9 @@ public class RouterHandler implements HttpHandler {
                     }
 
                     if (route.methodHandlerName==null) {
-                        callMethodAtInstance(route.handler,"index", request, response);
+                        callMethodAtInstance(route.handlerName,"index", request, response);
                     } else {
-                        callMethodAtInstance(route.handler,route.methodHandlerName, request, response);
+                        callMethodAtInstance(route.handlerName,route.methodHandlerName, request, response);
                     }
                     //logger.debug("Working to here again");
                 }
@@ -248,43 +249,42 @@ public class RouterHandler implements HttpHandler {
 
     public RouterHandler get(String url, Object handler, String methodName)
     {
-        IRequestHandler handlerInstance = null;
-        if (!handler.getClass().toString().contains("class")) return this;
+        addRoute(METHOD_GET, url, handler, methodName);
+        return this;
+    }
+
+    private boolean addRoute(String method, String url, Object handler, String methodName)
+    {
+
+        if (!handler.getClass().toString().contains("class")) return false;
         String className = handler.toString().split(" ")[1];
-        //logger.debug("RUN "+className);
+        logger.debug("RUN "+className);
 
-        try {
-            handlerInstance = (IRequestHandler) Builder.createInstance(className);
-            //handlerInstance.setContainer(container);
-        } catch (Exception ex)
-        {
-            logger.debug("Handler Wrong: "+handler.getClass().getName() + " by: " + ex.toString());
-        }
-
-        if (handlerInstance != null) {
+        if (Application.container().existInstance(className)) {
 
             if (getRouteIndexByUrl(url) < 0) {
-                routesMap.add(new Route(METHOD_GET, url, handlerInstance, methodName));
+                routesMap.add(new Route(method, url, className, methodName));
                 routes.add(url);
+                return true;
             }
-
+        } else {
+            logger.error("The class "+className+" can´t be found in the Application Context");
         }
+        return false;
+    }
+
+
+    public RouterHandler post(String url, Object handler)
+    {
+        post(url, handler, null);
         return this;
     }
 
 
-    public void post(String url, IRequestHandler handler)
+    public RouterHandler post(String url, Object handler, String methodName)
     {
-        post(url, handler, null);
-    }
-
-
-    public void post(String url, IRequestHandler handler, String methodName)
-    {
-        if (getRouteIndexByUrl(url) < 0) {
-            routesMap.add(new Route(METHOD_POST, url, handler, methodName));
-            routes.add(url);
-        }
+        addRoute(METHOD_POST, url, handler, methodName);
+        return this;
     }
 
     public RouterHandler middleware(String... middles)
@@ -343,8 +343,11 @@ public class RouterHandler implements HttpHandler {
     private void callMethodAtInstance(Object obj, String methodName, Request request, Response response)
     {
         Method method = null;
+        Object l = null;
         try {
-            method = obj.getClass().getMethod(methodName, Request.class, Response.class);
+            System.out.println("CLASS = "+obj.getClass().toString());
+            l = Application.container().getProvider(obj.toString());
+            method = l.getClass().getMethod(methodName, Request.class, Response.class);
         } catch (SecurityException e) {
             logger.debug("SecurityException: "+e.getMessage());
         }
@@ -353,7 +356,8 @@ public class RouterHandler implements HttpHandler {
         }
 
         try {
-            method.invoke(obj, request, response);
+
+            method.invoke(l, request, response);
         } catch (IllegalArgumentException e) {
             logger.debug("IllegalArgumentException: "+e.getMessage());
         }

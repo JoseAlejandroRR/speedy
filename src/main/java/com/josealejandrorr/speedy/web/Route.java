@@ -12,6 +12,7 @@ public class Route {
     public String method;
 
     public IRequestHandler handler;
+    public String handlerName;
 
     public String[] middlewares;
 
@@ -22,19 +23,21 @@ public class Route {
     public HashMap<String, RuleValidator> rulesPost;
 
 
-    public Route(String method, String url, IRequestHandler handler)
+    public Route(String method, String url, String handlerName)
     {
         this.method = method;
         this.url = url;
-        this.handler = handler;
+        //this.handler = handler;
+        this.handlerName = handlerName;
     }
 
 
-    public Route(String method, String url, IRequestHandler handler, String methodName)
+    public Route(String method, String url, String handlerName, String methodName)
     {
         this.method = method;
         this.url = url;
-        this.handler = handler;
+        //this.handler = handler;
+        this.handlerName = handlerName;
         this.methodHandlerName = methodName;
     }
 }

@@ -50,7 +50,7 @@ public class ServiceProvider {
 
     public Object getProvider(String key)
     {
-        logger.debug("Calling Provider: " + key);
+        //logger.debug("Calling Provider: " + key);
         if (providers.containsKey(key)) {
             if (providers.get(key).getInstance() == null) {
                 logger.error("Provider '" + key +"' is NULL");
@@ -68,6 +68,11 @@ public class ServiceProvider {
     {
         logger.debug("Register Provider: " + key);
         providers.put(key, instance);
+    }
+
+    public boolean existInstance(String key)
+    {
+        return providers.containsKey(key);
     }
 
     public void setContextDefault()

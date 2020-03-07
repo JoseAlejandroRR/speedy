@@ -19,7 +19,7 @@ public class Routes {
     {
         /*router.get("/api/d", HomeHandler.class, "getUser");
 
-        router.get("/api", HomeHandler.class).middleware("auth");
+
 
 
         // router.get("/web","auth" ,  new HomeHandler("ROOT URL"));
@@ -39,6 +39,8 @@ public class Routes {
         router.get("/static", HomeHandler.class, "views");
 
         router.get("/qa", HomeHandler.class, "q1");*/
+        router.post("/api", HomeHandler.class,"api");
+        //middleware("auth");
         router.get("/api/user/[user_id]/adress/[direction]", HomeHandler.class, "vars");
 
         router.get("/customer", HomeHandler.class, "customer");

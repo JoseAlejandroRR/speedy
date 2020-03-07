@@ -87,13 +87,13 @@ public class Logger implements ILogger {
 
     public void error(String... strings) {
         String line = registerData(strings, MODE_ERROR);
-        showConsole(line, MODE_INFO);
+        showConsole(line, MODE_ERROR);
         writeFile(line);
     }
 
     private void showConsole(String line, String mode)
     {
-        if(mode != MODE_ERROR) {
+        if(!mode.equals(MODE_ERROR)) {
             print(line);
         } else {
             error(line);

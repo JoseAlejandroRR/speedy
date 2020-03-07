@@ -44,9 +44,9 @@ public class Bootstrap {
 
         //routes.getRouter().setHandler404(new PageNotFound());
 
-        server.registerMiddlewares(Middlewares.getList());
-
         container.registerProviders(Providers.getList());
+
+        server.registerMiddlewares(Middlewares.getList());
 
         server.start(9000);
     }

@@ -189,8 +189,8 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
     public void api(Request req, Response res)
     {
         HashMap<String, String> obj = new HashMap<String, String>();
-        obj.put("id","1");
-        obj.put("email","josealejandror28@gmail.com");
+        obj.put("id",req.body.get("id"));
+        obj.put("email",req.body.get("email"));
 
         res.json(obj);
     }
