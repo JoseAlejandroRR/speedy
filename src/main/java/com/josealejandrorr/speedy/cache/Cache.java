@@ -1,6 +1,6 @@
 package com.josealejandrorr.speedy.cache;
 
-import com.josealejandrorr.speedy.files.File;
+import com.josealejandrorr.speedy.files.Files;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Logger;
 
@@ -19,7 +19,7 @@ public class Cache {
 
         if (Cache.hasKey(key)){
             String path = PATH + DatatypeConverter.printBase64Binary(key.getBytes());
-            String content = File.get(path);
+            String content = ""; //Files.get(path);
             if (content != null && content.trim().length()>0){
                 String[] json = content.split("\\]\\[");
                 String details = json[0].replace("[{","");
@@ -44,7 +44,7 @@ public class Cache {
                             Date now = new Date();
 
                             if(now.getTime() > expired_at) {
-                                File.delete(path);
+                                Files.delete(path);
                                 return null;
                             }
                         }
@@ -176,11 +176,11 @@ public class Cache {
         Logger.getLogger().debug("WRITE JSON ", json);
 
         String path = PATH + DatatypeConverter.printBase64Binary(key.getBytes());
-        if (File.exist(path)) {
-            File.delete(path);
+        if (Files.exist(path)) {
+            Files.delete(path);
         }
 
-        File.save(path, json);
+        Files.save(path, json);
     }
 
     /*public static void add(String key,ResultSet rs)
@@ -243,10 +243,10 @@ public class Cache {
     public static boolean hasKey(String key)
     {
         String file = DatatypeConverter.printBase64Binary(key.getBytes());
-        if (File.exist(PATH + file)) {
+        if (Files.exist(PATH + file)) {
             return true;
         }
-        /*File f = new File(file);
+        /*Files f = new Files(file);
         if(f.exists() && !f.isDirectory()) {
             // do something
             //System.out.println("EXISTE "+file);

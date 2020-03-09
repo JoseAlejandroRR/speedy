@@ -1,19 +1,17 @@
 package app.http.handlers;
 
-import app.contracts.IProductService;
 import app.models.*;
 import app.services.ProductService;
 import com.josealejandrorr.speedy.annotations.AutoLoad;
 import com.josealejandrorr.speedy.annotations.SmartClass;
 import com.josealejandrorr.speedy.contracts.http.IRequestHandler;
-import com.josealejandrorr.speedy.database.DB;
-import com.josealejandrorr.speedy.database.Model;
-import com.josealejandrorr.speedy.utils.Logger;
+import com.josealejandrorr.speedy.files.Files;
 import com.josealejandrorr.speedy.web.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @SmartClass
@@ -165,19 +163,19 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
 
     public void upload(Request req, Response res)
     {
-        /*Logger.getLogger().debug("TIENE "+req.body.size());
-        for (Map.Entry<String, String> in : req.body.entrySet())
+       logger.debug("TIENE "+req.body.size());
+        for (Map.Entry<String, Object> in: req.body.entrySet())
         {
-            Logger.getLogger().debug("FIELD ",in.getKey(), in.getValue());
-        }*/
-        //String filePath = File.get("foto",null);
+           logger.debug("FIELD " +in.getKey() + "=" +in.getValue());
+        }
+        File photo = Files.getTempFile(req.body.get("file").toString());
 
         /*ArrayList<Map<String, String>> datos = new ArrayList<Map<String, String>>();
         HashMap<String, String> obj = new HashMap<String, String>();
         obj.put("email",String.valueOf(req.body.get("email")));
         datos.add(obj);
         Cache.add("info", datos);*/
-        res.send("Se ha creado un archivo para " + req.body.get("email") );
+        res.send("Se ha creado un archivo para " + req.body.get("email") +": "+photo.getAbsolutePath());
     }
 
     public void exit(Request req, Response res)
@@ -188,7 +186,7 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
 
     public void api(Request req, Response res)
     {
-        HashMap<String, String> obj = new HashMap<String, String>();
+        HashMap<String, Object> obj = new HashMap<String, Object>();
         obj.put("id",req.body.get("id"));
         obj.put("email",req.body.get("email"));
 

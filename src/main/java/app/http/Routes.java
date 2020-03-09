@@ -25,7 +25,7 @@ public class Routes {
         // router.get("/web","auth" ,  new HomeHandler("ROOT URL"));
 
         // router.get("/client","guest" ,  new HomeHandler("ROOT URL"));
-        router.get("/uploads", HomeHandler.class, "upload");
+
                 //.validator(HomeValidator.class);
 
         router.get("/test", HomeHandler.class, "action").middleware("auth");
@@ -39,6 +39,7 @@ public class Routes {
         router.get("/static", HomeHandler.class, "views");
 
         router.get("/qa", HomeHandler.class, "q1");*/
+        router.get("/uploads", HomeHandler.class, "upload");
         router.post("/api", HomeHandler.class,"api");
         //middleware("auth");
         router.get("/api/user/[user_id]/adress/[direction]", HomeHandler.class, "vars");

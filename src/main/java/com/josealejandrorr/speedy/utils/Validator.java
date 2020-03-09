@@ -24,19 +24,19 @@ public class Validator {
     private static final String MESSAGE_FIELD_MISSING = "field $[field] should be exits";
 
 
-    public static HashMap<String, String> array(HashMap<String, RuleValidator> rules, HashMap<String, String> array)
+    public static HashMap<String, String> array(HashMap<String, RuleValidator> rules, HashMap<String, Object> array)
     {
         errors = new HashMap<String, String>();
-        return Validator.array(rules, array, new HashMap<String, String>());
+        return Validator.array(rules, array, new HashMap<>());
     }
 
-    public static HashMap<String, String> array(HashMap<String, RuleValidator> rules, HashMap<String, String> array, HashMap<String, String> messages)
+    public static HashMap<String, String> array(HashMap<String, RuleValidator> rules, HashMap<String, Object> array, HashMap<String, String> messages)
     {
         Validator.messages = messages;
         return Validator.validateParams(rules, array);
     }
 
-    private static HashMap<String, String> validateParams(HashMap<String, RuleValidator> rules, HashMap<String, String> array)
+    private static HashMap<String, String> validateParams(HashMap<String, RuleValidator> rules, HashMap<String, Object> array)
     {
         for(Map.Entry<String, RuleValidator> item : rules.entrySet())
         {

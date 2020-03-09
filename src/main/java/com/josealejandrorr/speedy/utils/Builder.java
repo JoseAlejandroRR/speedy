@@ -1,7 +1,7 @@
 package com.josealejandrorr.speedy.utils;
 
 import com.josealejandrorr.speedy.annotations.ModelEntity;
-import com.josealejandrorr.speedy.files.File;
+import com.josealejandrorr.speedy.files.Files;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.net.URI;
 import java.nio.charset.Charset;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -111,11 +110,11 @@ public class Builder {
             }
             if (isFile) {
                 value = value.replace("Content-Type: image/png","");
-                File.save(key, value);
+                Files.save(key, value);
             }
             i++;
         }
-        File.save("pdf.pdf", stringBuilder.toString());
+        Files.save("pdf.pdf", stringBuilder.toString());
 
         return stringBuilder.toString();
     }

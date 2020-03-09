@@ -81,7 +81,7 @@ public class RouterHandler implements HttpHandler {
         }
 
 
-        //File.get(exchange);
+        //Files.get(exchange);
 
         Request request = new Request(exchange);
         Response response = new Response(exchange);
@@ -114,7 +114,7 @@ public class RouterHandler implements HttpHandler {
 
                 if(route.rulesGet != null && route.rulesGet.size() > 0 || route.rulesPost != null && route.rulesPost.size() > 0)
                 {
-                    HashMap<String, String> error = Validator.array(route.rulesGet, request.query);
+                    HashMap<String, String> error = Validator.array(route.rulesGet, new HashMap<>(request.query));
                     String messageError = "";
                     if (error.size() > 0) {
                         for (HashMap.Entry<String, String> err: error.entrySet()) {
@@ -179,7 +179,7 @@ public class RouterHandler implements HttpHandler {
         os.write(response.getResponse().getBytes());
         os.close();
 
-        //File.clearTempDir();
+        //Files.clearTempDir();
         endTime   =  System.currentTimeMillis();
         endMemory = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         totalTime = (endTime - startTime);

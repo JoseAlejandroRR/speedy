@@ -19,7 +19,7 @@ public class View {
 
     public static String render(String file, HashMap<String, Object> data)
     {
-        //String content = File.get(file);
+        //String content = Files.get(file);
 
         String content = View.loadFile(file);
 

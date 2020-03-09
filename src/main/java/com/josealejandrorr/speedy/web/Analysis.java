@@ -4,10 +4,12 @@ package com.josealejandrorr.speedy.web;
 import com.josealejandrorr.speedy.utils.Logger;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Analysis {
+    public class Analysis {
     static final int NONE = 0;
     static final int DATAHEADER = 1;
     static final int FILEDATA = 2;
@@ -26,6 +28,11 @@ public class Analysis {
         String filefieldname = ""; // 文件表单域名
         Map<String, Object> formfields = new HashMap<String, Object>();
         int filesize = 0; // 文件长度
+
+        List<Integer> filesSize = new ArrayList<>();
+        List<String> filesName = new ArrayList<>();
+        List<String> filesFieldName = new ArrayList<>();
+        List<byte[]> filesBytes = new ArrayList<>();
 
         int pos = contentType.indexOf("boundary=");
 
@@ -84,6 +91,7 @@ public class Analysis {
                         s = s.substring(pos);
                         int pos1 = s.indexOf("\";");
                         filefieldname = s.substring(0, pos1);
+                        filesFieldName.add(filefieldname);
 
                         // 将文件名解析出来
                         pos = s.indexOf("filename=");
@@ -94,6 +102,7 @@ public class Analysis {
                         pos = s.lastIndexOf("\\");
                         s = s.substring(pos + 1);
                         filename = s;
+                        filesName.add(s);
                         // 从字节数组中取出文件数组
                         pos = byteIndexOf(b, temp, 0);
                         b = subBytes(b, pos + temp.getBytes().length + 2, b.length);// 去掉前面的部分
@@ -119,7 +128,10 @@ public class Analysis {
                             b = subBytes(b, 0, pos - 1);
                         }
 
+                        filesBytes.add(b);
+
                         filesize = b.length - 1;
+                        filesSize.add(filesize);
                         state = FILEDATA;
                         Logger.getLogger().debug("TERCERO ");
                     }
@@ -146,7 +158,17 @@ public class Analysis {
         fileInfo.setBytes(b);
         fileInfo.setFilename(filename);
         fileInfo.setLength(filesize);
-        formfields.put(filefieldname, fileInfo);
+        for (int j = 0; j < filesBytes.size(); j++)
+        {
+            FileInfo fi = new FileInfo();
+            fi.setFieldname(filesFieldName.get(j));
+            fi.setBytes(filesBytes.get(j));
+            fi.setFilename(filesName.get(j));
+            fi.setLength(filesSize.get(j));
+            formfields.put(filesFieldName.get(j), fi);
+        }
+
+        //formfields.put(filefieldname, fileInfo);
         return formfields;
 
     }

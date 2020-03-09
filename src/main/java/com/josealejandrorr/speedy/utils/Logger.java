@@ -1,7 +1,7 @@
 package com.josealejandrorr.speedy.utils;
 
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
-import com.josealejandrorr.speedy.files.File;
+import com.josealejandrorr.speedy.files.Files;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -122,7 +122,7 @@ public class Logger implements ILogger {
 
     private void writeFile(String text)
     {
-        File.save(fileName, text, true);
+        Files.save(fileName, text, true);
     }
 
     private void print(String str) {

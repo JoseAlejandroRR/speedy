@@ -4,5 +4,5 @@ import java.util.HashMap;
 
 public interface IProductService {
 
-    public boolean addProduc(HashMap<String, String> data);
+    public boolean addProduc(HashMap<String, Object> data);
 }
