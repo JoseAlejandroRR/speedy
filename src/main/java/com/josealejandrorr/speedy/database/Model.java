@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-
+@Deprecated
 public abstract class Model {
 
     private DB db;

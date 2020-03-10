@@ -40,52 +40,8 @@ public class Conexion {
 
     public Conexion()
     {
-        if(!isLoad) loadVars();
     }
 
-    private void loadVars()
-    {
-        List<Map<String, String>> list = new ArrayList<>();
-        String file = "application.config";
-        String content = "";
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
-            for(String line; (line = br.readLine()) != null; ) {
-                String item[] = line.split("=");
-                if(item.length>1){
-                    switch(item[0])
-                    {
-                        case "host":
-                            Conexion.host = item[1];
-                            break;
-                        case "user":
-                            Conexion.user = item[1];
-                            break;
-                        case "pass":
-                            Conexion.pass = item[1];
-                            break;
-                        case "db":
-                            Conexion.db = item[1];
-                            break;
-                        case "port":
-                            Conexion.port = Integer.parseInt(item[1]);
-                            break;
-                    }
-                }
-                content = line;
-                Conexion.url = "jdbc:mysql://"+Conexion.host+":"+Conexion.port+"/"+Conexion.db+"?generateSimpleParameterMetadata=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull";
-
-            }
-            //System.out.println(Conexion.url);
-            //System.out.printf("Conetando %s %s\n",Conexion.user, Conexion.pass);
-            isLoad = true;
-            // line is not visible here.
-        } catch (IOException e) {
-            System.out.println("Error al Leer el Archivo de Configuracion");
-            // TODO Auto-generated catch block
-            //e.printStackTrace();
-        }
-        //return content;
-    }
 
     public void setModeCache(boolean _asyn, int _time)
     {
