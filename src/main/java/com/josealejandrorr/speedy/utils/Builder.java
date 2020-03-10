@@ -3,6 +3,7 @@ package com.josealejandrorr.speedy.utils;
 import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.annotations.ModelEntity;
 import com.josealejandrorr.speedy.files.Files;
+import sun.jvm.hotspot.utilities.AltPlatformInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,9 +62,8 @@ public class Builder {
             while (rs.next()) {
                 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Map<String, String> row = new HashMap<>();
-                //System.out.println(rs.getRow());
                 for (int i = 1; i <= columns; ++i) {
-                    System.out.println(md.getColumnTypeName(i));
+                    //System.out.println(md.getColumnTypeName(i));
                     switch(md.getColumnTypeName(i))
                     {
                         case "TIMESTAMP":
@@ -96,7 +96,6 @@ public class Builder {
         ModelEntity me = (ModelEntity) an;
 
         for( Field field : fields ){
-            //System.out.println(field.getType());
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             boolean addField = false;
             try {
@@ -110,7 +109,7 @@ public class Builder {
                 {
 
                     String value = String.valueOf(field.get(obj));
-                    //System.out.println("value "+value);
+
                     if(value.equals("null")) value = "";
                     if(field.getType().toString().contains("Date")){
                         //value = dt.format(field.get(obj));
@@ -121,7 +120,7 @@ public class Builder {
 
             } catch (IllegalArgumentException | IllegalAccessException e) {
                 // TODO Auto-generated catch block
-                System.out.println("-- ERROR bindProperties: "+e.toString()+" --\n");
+                Application.logger.error("-- ERROR bindProperties: "+e.toString()+" --\n");
                 e.printStackTrace();
             }
         }
@@ -141,8 +140,7 @@ public class Builder {
 
                 if(data.containsKey(field.getName()))
                 {
-                    //System.out.println(field.getType().toString());
-                    //System.out.println(field.getName()+"="+data.get(field.getName()));
+
                     field.setAccessible(true);
                     if(field.getType().toString().contains("int") || field.getType().toString().contains("Integer")) field.set(obj, Integer.parseInt(data.get(field.getName())));
                     if(field.getType().toString().contains("Long")) field.set(obj, Long.parseLong(data.get(field.getName())));
@@ -155,7 +153,7 @@ public class Builder {
 
             } catch (IllegalArgumentException | IllegalAccessException e) {
                 // TODO Auto-generated catch block
-                System.out.println("-- ERROR setProperties: "+e.toString()+" --\n");
+                Application.logger.error("-- ERROR setProperties: "+e.toString()+" --\n");
                 e.printStackTrace();
             }
         }
@@ -174,7 +172,6 @@ public class Builder {
 
             if (var.length > 1) {
                 obj.put(var[0], var[1]);
-                Logger.getLogger().debug("VAR ",var[0], var[1]);
             }
         }
 

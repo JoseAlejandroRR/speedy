@@ -104,8 +104,6 @@ public abstract class Model  {
 
         map.ifPresent(this::setInstance);
 
-        System.out.println(this.toString());
-
         return this;
     }
 
@@ -314,8 +312,6 @@ public abstract class Model  {
 
                 if (map.containsKey(field.getName()))
                 {
-                    //System.out.println(field.getType().toString());
-                    //System.out.println(field.getName()+"="+map.get(field.getName()));
                     field.setAccessible(true);
                     field.set(this, map.get(field.getName()));
 

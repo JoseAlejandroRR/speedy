@@ -379,8 +379,6 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                 HashMap<String, Object> row = new HashMap<>();
                 System.out.println(rs.getRow());
                 for (int i = 1; i <= columns; ++i) {
-                    System.out.println("-> "+md.getColumnTypeName(i));
-                    System.out.println("class "+md.getColumnClassName(i));
 
                     switch(md.getColumnTypeName(i))
                     {
@@ -388,7 +386,6 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                             Timestamp stamp = new Timestamp(System.currentTimeMillis());
                             Date date = new Date(stamp.getTime());
                             row.put(md.getColumnName(i).toLowerCase(), date);
-                            //System.out.println(md.getColumnName(i)+"="+date);
                             break;
                         case "java.lang.String":
                         case "VARCHAR":
@@ -412,7 +409,6 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
                             break;
                         default:
                             row.put(md.getColumnName(i).toLowerCase(), rs.getString(i));
-                            //System.out.println(data.getString(i));
                             break;
                     }
                 }

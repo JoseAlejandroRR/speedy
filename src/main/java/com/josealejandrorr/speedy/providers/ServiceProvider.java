@@ -36,7 +36,6 @@ public class ServiceProvider {
         for (Map.Entry<String, Object> provider : instances.entrySet())
         {
             Provider instance = new Provider();
-            System.out.println(provider.getValue().getClass());
             if (provider.getValue() instanceof Class) {
                 String className = provider.getValue().toString().split(" ")[1];
                 instance.create(Builder.createInstance(className));
@@ -50,7 +49,6 @@ public class ServiceProvider {
 
     public Object getProvider(String key)
     {
-        //logger.debug("Calling Provider: " + key);
         if (providers.containsKey(key)) {
             if (providers.get(key).getInstance() == null) {
                 logger.error("Provider '" + key +"' is NULL");
@@ -81,7 +79,6 @@ public class ServiceProvider {
 
         Set<Class<?>> klass = reflections.getTypesAnnotatedWith(SmartClass.class);
         klass.stream().filter(c -> !c.isAnnotation()).forEach(c -> {
-            //System.out.println("Creating: " + c.getName());
             Object obj = Builder.createInstance(c.getName());
             Provider pr = new Provider();
             pr.create(obj);
@@ -89,12 +86,10 @@ public class ServiceProvider {
         });
 
         providers.values().stream().map(p -> p.getInstance()).forEach(c -> {
-            //System.out.println("Creating: " + c.getClass().getName());
 
             Field[] fields = c.getClass().getDeclaredFields();
 
             Arrays.stream(fields).forEach(f ->{
-                //System.out.println("Field = "+f.getName());
                 AutoLoad autoload = f.getAnnotation(AutoLoad.class);
                 if (autoload != null) {
                     Object obj = null;
@@ -105,7 +100,6 @@ public class ServiceProvider {
                         }).findFirst();
 
                         if (optPr.isPresent()) {
-                            //System.out.println("Field HAndler " +f.getName() + " need load "+ f.getType() + " using " + f.getClass().getName());
                             obj = optPr.get().getInstance();
                         }
                     } else {
@@ -113,7 +107,6 @@ public class ServiceProvider {
                     }
                     if (obj != null) {
                         try {
-                            //System.out.println("HAField " +f.getName() + " need load "+ f.getType() + " using " + obj.toString());
                             f.setAccessible(true);
                             f.set(c,obj);
                         } catch (IllegalArgumentException | IllegalAccessException e){

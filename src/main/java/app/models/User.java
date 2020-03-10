@@ -48,17 +48,14 @@ public class User extends Model {
     public Device device()
     {
         if(this.device == null) {
-            System.out.println("cheko");
             this.device = (Device)  this.hasOne(Device.class, "user_id");
         }
-        //System.out.println(this.device.id);
         return this.device;
     }
 
     public ArrayList<Device> devices()
     {
         if(this.devices == null) {
-            System.out.println("cheko2");
             this.devices = this.hasMany(Device.class, "user_id");
         }
         return this.devices;
