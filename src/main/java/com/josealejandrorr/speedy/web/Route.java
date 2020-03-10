@@ -27,7 +27,6 @@ public class Route {
     {
         this.method = method;
         this.url = url;
-        //this.handler = handler;
         this.handlerName = handlerName;
     }
 
@@ -36,7 +35,6 @@ public class Route {
     {
         this.method = method;
         this.url = url;
-        //this.handler = handler;
         this.handlerName = handlerName;
         this.methodHandlerName = methodName;
     }

@@ -1,21 +1,13 @@
 package com.josealejandrorr.speedy;
 
 import com.josealejandrorr.speedy.config.ApplicationConfig;
-import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
 import com.josealejandrorr.speedy.contracts.http.IServer;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
-import com.josealejandrorr.speedy.data.drivers.MySqlDriverDatabase;
-import com.josealejandrorr.speedy.database.Conexion;
 import com.josealejandrorr.speedy.providers.Provider;
 import com.josealejandrorr.speedy.providers.ServiceProvider;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Application  {
 

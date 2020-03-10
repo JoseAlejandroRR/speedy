@@ -23,6 +23,8 @@ public class Providers {
     {
         providers = new HashMap<String, Object>();
 
+        providers.put(ServiceProvider.LOGGER, Logger.getLogger());
+
         providers.put("DB", DB.class);
 
         MySqlDriverDatabase serviceRepository = new MySqlDriverDatabase(

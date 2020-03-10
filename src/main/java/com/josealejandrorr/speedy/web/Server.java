@@ -82,7 +82,7 @@ public class Server implements IServer, IWebServer
 
             logger.info(this.getClass().getName() ,"Server start at http://localhost:" + PORT);
         } catch (IOException e) {
-            logger.info("SERVER_CREATE_ERROR: " + e.getMessage());
+            logger.error("SERVER_CREATE_ERROR: " + e.getMessage());
             e.printStackTrace();
         }
 

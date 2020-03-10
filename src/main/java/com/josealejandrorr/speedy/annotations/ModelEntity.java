@@ -24,8 +24,14 @@ public @interface ModelEntity {
 
     /**
      *
-     * @return the table name in database
+     * @return determines if use created_at, updated_at Fields
      */
     boolean timestamps() default true;
+
+    /**
+     *
+     * @return determines if delete or only hide the register
+     */
+    boolean softDelete() default false;
 
 }

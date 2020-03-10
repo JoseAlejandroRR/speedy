@@ -129,6 +129,27 @@ public class ServiceProvider {
         setDatabaseDriverRepository();
     }
 
+    public Object getInstanceByClass(Class<?> klazz)
+    {
+        Object obj = null;
+        System.out.println("SEARCH   " +klazz.getName()+ " need load "+ klazz.getTypeName());
+        if (klazz.isInterface()) {
+            Optional<Provider> optPr = ServiceProvider.providers.values().stream().filter(p -> {
+                return Arrays.stream(p.getInstance().getClass().getInterfaces())
+                        .filter(o -> o.getName().equals(klazz.getName())).count() > 0;
+            }).findFirst();
+
+            if (optPr.isPresent()) {
+                System.out.println("SEARCH for  " +klazz.getName()+ " need load "+ klazz.getTypeName()+ " using " + klazz.getClass().getName());
+                obj = optPr.get().getInstance();
+            }
+        } else {
+            obj = Application.container().getProvider(klazz.getName());
+        }
+
+        return obj;
+    }
+
     private void setDatabaseDriverRepository()
     {
         DatabaseRepository orm = null;
@@ -139,24 +160,20 @@ public class ServiceProvider {
                     orm = new MySqlDriverDatabase(logger);
                     break;
                 default:
-                    logger.error("Database Driver unkown:"  + Application.env("driver"));
+                    logger.error("Database Driver unknown:"  + Application.env("driver"));
                     break;
             }
             Provider providerORM = new Provider();
             providerORM.create(orm);
             registeProvider(DATABASE_DRIVER_REPOSITORY, providerORM);
         } else {
-            logger.debug("Driver for Database wasnt configurated");
+            logger.error("Driver for Database not was configurated");
         }
     }
 
 
-    /*public enum Providers {
-        SERVICES_PROVIDERS,
-        LOGGER
-    }*/
-
     public final static String SERVICE_REPOSITORY = "service_repository";
     public final static String DATABASE_DRIVER_REPOSITORY = "database_driver";
+    public final static String LOGGER = "logger";
 
 }

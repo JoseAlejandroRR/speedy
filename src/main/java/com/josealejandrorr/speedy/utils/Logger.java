@@ -1,5 +1,6 @@
 package com.josealejandrorr.speedy.utils;
 
+import com.josealejandrorr.speedy.annotations.SmartClass;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.files.Files;
 
@@ -8,6 +9,7 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+@SmartClass
 public class Logger implements ILogger {
 
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
@@ -34,6 +36,7 @@ public class Logger implements ILogger {
 
     public Logger()
     {
+        fileName = "falso";
         instance = this;
     }
 

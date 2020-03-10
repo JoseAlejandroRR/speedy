@@ -1,5 +1,6 @@
 package com.josealejandrorr.speedy.utils;
 
+import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.annotations.ModelEntity;
 import com.josealejandrorr.speedy.files.Files;
 
@@ -49,74 +50,6 @@ public class Builder {
             map.put(name, value);
         }
         return map;
-    }
-
-    public static String convert(InputStream inputStream, Charset charset) throws IOException {
-
-        StringBuilder stringBuilder = new StringBuilder();
-        String line = null;
-        String bodyRaw = "";
-        Pattern pfields = Pattern.compile("name=\"(.*?)\"");
-        Pattern pfiles = Pattern.compile("filename=\"(.*?)\"");
-
-        HashMap<String, String> body = new HashMap<String, String>();
-
-        int i = 0;
-        String key = null;
-        String value = "";
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, charset))) {
-            while ((line = bufferedReader.readLine()) != null) {
-                //System.out.printf("%d %s \n",i,line);
-                stringBuilder.append(line);
-                bodyRaw = bodyRaw+"\n "+line;
-
-
-            }
-        }
-        String[] raw = bodyRaw.split("--------------------");
-        Pattern pValue;
-        boolean isFile = false;
-        for(String node : raw)
-        {
-            Matcher m = pfields.matcher(node);
-            Matcher m2 = pfiles.matcher(node);
-            key = null;
-            isFile = false;
-            //System.out.printf("RAW %s \n",node);
-            while(m.find())
-            {
-                key = m.group();
-                body.put(key,null);
-                value = "";
-                //System.out.printf("FIELD %s \n",m.group());
-            }
-
-            while(m2.find())
-            {
-                isFile = true;
-                //System.out.printf("FILE %s \n",m2.group());
-            }
-            if(key != null) {
-                String split = "-"+key+"-";
-                //System.out.printf("SPLIT %s \n",split);
-                String[] pd =node.split(key);
-                key = key.replaceAll("\"","").replace("name=","");
-                if(pd.length>1) {
-                    value = pd[1].trim();
-                    body.put(key,value);
-                    System.out.printf("%s=%s \n",key, value);
-                }
-
-            }
-            if (isFile) {
-                value = value.replace("Content-Type: image/png","");
-                Files.save(key, value);
-            }
-            i++;
-        }
-        Files.save("pdf.pdf", stringBuilder.toString());
-
-        return stringBuilder.toString();
     }
 
     public static ArrayList<Map<String, String>> resultSetToArrayList(ResultSet rs)
@@ -275,7 +208,6 @@ public class Builder {
                 } else {
                     json += String.format("\"%s\":\"%s\",", child.getKey(), child.getValue());
                 }
-                //json += String.format("\"%s\":\"%s\",", child.getKey(), child.getValue());
             }
         }
 
@@ -301,7 +233,7 @@ public class Builder {
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            Logger.getLogger().error("Error trying parse '"+ text +"' in Date Objects");
+            Application.logger.error("Error trying parse '"+ text +"' in Date Objects");
         }
         return date;
     }

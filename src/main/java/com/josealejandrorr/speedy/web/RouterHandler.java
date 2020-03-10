@@ -7,6 +7,7 @@ import com.josealejandrorr.speedy.contracts.http.IRequestValidator;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.contracts.http.IRequestHandler;
 import com.josealejandrorr.speedy.contracts.http.IWebServer;
+import com.josealejandrorr.speedy.events.exceptions.EventException;
 import com.josealejandrorr.speedy.providers.ServiceProvider;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Validator;
@@ -86,20 +87,12 @@ public class RouterHandler implements HttpHandler {
         Request request = new Request(exchange);
         Response response = new Response(exchange);
 
-        for(Map.Entry<String, List<String>> item : exchange.getRequestHeaders().entrySet())
-        {
-            for(String str : item.getValue())
-            {
-                //logger.debug("HEADER", item.getKey(), str);
-            }
-        }
 
         logger.info(request.method, request.url, request.headers.keySet().toString());
-        //int index = existRoute(request.url);
+
         int index = getRouteIndexByUrl(request.url);
 
         if (index >= 0) {
-            //int n = routes.indexOf(request.url);
             Route route = routesMap.get(index);
 
             if(route.method.equals(request.method)) {
@@ -340,8 +333,7 @@ public class RouterHandler implements HttpHandler {
         return res;
     }
 
-    private void callMethodAtInstance(Object obj, String methodName, Request request, Response response)
-    {
+    private void callMethodAtInstance(Object obj, String methodName, Request request, Response response) {
         Method method = null;
         Object l = null;
         try {
@@ -349,24 +341,24 @@ public class RouterHandler implements HttpHandler {
             l = Application.container().getProvider(obj.toString());
             method = l.getClass().getMethod(methodName, Request.class, Response.class);
         } catch (SecurityException e) {
-            logger.debug("SecurityException: "+e.getMessage());
+            logger.error("SecurityException: "+e.getMessage());
         }
         catch (NoSuchMethodException e) {
-            logger.debug("NoSuchMethodException: "+e.getMessage());
+            logger.error("NoSuchMethodException: "+e.getMessage());
         }
 
         try {
 
             method.invoke(l, request, response);
         } catch (IllegalArgumentException e) {
-            logger.debug("IllegalArgumentException: "+e.getMessage());
+            logger.error("IllegalArgumentException: "+e.getMessage());
         }
         catch (IllegalAccessException e) {
-            logger.debug("IllegalAccessException: "+e.getMessage());
+            logger.error("IllegalAccessException: "+e.getMessage());
 
         }
         catch (InvocationTargetException e) {
-            logger.debug("InvocationTargetException: "+e.toString());
+            logger.error(e.getTargetException().getMessage());
         }
     }
 

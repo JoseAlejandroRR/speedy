@@ -1,5 +1,6 @@
 package com.josealejandrorr.speedy.web;
 
+import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.files.Files;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Logger;
@@ -87,7 +88,7 @@ public class Request {
                 }
             }
         } catch (IOException e) {
-            Logger.getLogger().error("Parse Body Request: " + e.getMessage());
+            Application.logger.error("Parse Body Request: " + e.getMessage());
             return body;
         }
 
@@ -112,46 +113,6 @@ public class Request {
                     body.put(v[0],v[1]);
                 }
             }
-        }
-        else if (contentType.contains("multipart/form-data; boundary")) {
-            /*String[] raw = bodyRaw.split("--------------------");
-            Pattern pfields = Pattern.compile("name=\"(.*?)\"");
-            Pattern pfiles = Pattern.compile("filename=\"(.*?)\"");
-            Pattern pValue;
-            int i = 0;
-            String key = null;
-            String value = "";
-            boolean isFile = false;
-            for(String node : raw)
-            {
-                Matcher m = pfields.matcher(node);
-                Matcher m2 = pfiles.matcher(node);
-                key = null;
-                isFile = false;
-
-                while(m.find())
-                {
-                    key = m.group();
-                    value = "";
-                }
-
-                while(m2.find())
-                {
-                    isFile = true;
-                }
-
-                if(key != null) {
-                    String[] pd =node.split(key);
-                    key = key.replaceAll("\"","").replace("name=","");
-                    if(pd.length > 1 && isFile == false) {
-                        value = pd[1].trim();
-                        body.put(key,value);
-                        Logger.getLogger().debug("FIELD",key,value);
-                    }
-
-                }
-            }*/
-
         }
 
         return body;
@@ -181,28 +142,21 @@ public class Request {
             e.printStackTrace();
         }
 
-        /*if (map.size() > 0) {
-            filesUploaded = new String[map.size()];
-        }*/
         int i = 0;
         for(Map.Entry<String, Object> item : map.entrySet())
         {
-            //if (String.valueOf(item.getKey()).trim().length() == 0) continue;
             System.out.println(item.getKey());
             if (map.get(item.getKey()) instanceof FileInfo) {
                 FileInfo fileInfo = (FileInfo) map.get(item.getKey());
                 fileUrl = Files.DIR_TEMP + fileInfo.getFilename();
-                Logger.getLogger().debug("FILE",fileInfo.toString());
                 Files.writeFile(fileUrl,fileInfo.getBytes());
-                Logger.getLogger().debug("RARO ",String.valueOf(map.size()), item.getKey(), fileInfo.getFieldname());
                 body.put(item.getKey(), fileInfo.getFilename());
-                //filesUploaded[i] = fileUrl;
             } else {
                 body.put(item.getKey(), item.getValue());
             }
 
         }
-        Logger.getLogger().debug("FINALIZA");
+
         return body;
     }
 

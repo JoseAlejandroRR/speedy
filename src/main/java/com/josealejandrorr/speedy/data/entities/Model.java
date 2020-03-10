@@ -4,8 +4,9 @@ import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.annotations.ModelEntity;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseQuery;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
-import com.josealejandrorr.speedy.contracts.data.repositories.Repository;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
+import com.josealejandrorr.speedy.data.Messages;
+import com.josealejandrorr.speedy.data.drivers.DatabaseException;
 import com.josealejandrorr.speedy.providers.ServiceProvider;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Logger;
@@ -45,11 +46,11 @@ public abstract class Model  {
 
     public Model()
     {
-        logger = Logger.getLogger();
+        logger = Application.logger;
         filters = new ArrayList<>();
         serviceRepository = (DatabaseRepository) Application.container().getProvider(ServiceProvider.DATABASE_DRIVER_REPOSITORY);
         if (serviceRepository == null) {
-            logger.error("Database Repository doesnt exist in the Application Container");
+            throw new DatabaseException(Messages.DATABASE_DRIVER_NOT_FOUND);
         }
 
         Class c = this.getClass();
@@ -61,7 +62,7 @@ public abstract class Model  {
             hasTimestamps = me.timestamps();
 
         } else {
-            Logger.getLogger().error("@ModelEntity must used in " + c.getName());
+            throw new DatabaseException(c.getName() + " must use @ModelEntity in the head class");
         }
         resetQuery();
     }
@@ -325,7 +326,7 @@ public abstract class Model  {
 
             } catch (IllegalArgumentException | IllegalAccessException e) {
                 // TODO Auto-generated catch block
-                System.out.println("-- ERROR setProperties: "+e.toString()+" --\n");
+                logger.error("-- ERROR setProperties: "+e.toString()+" --");
                 e.printStackTrace();
             }
         }

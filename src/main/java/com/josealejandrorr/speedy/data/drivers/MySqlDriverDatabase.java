@@ -6,6 +6,7 @@ import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseQuery;
 import com.josealejandrorr.speedy.contracts.data.repositories.DatabaseRepository;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.data.EntityMapper;
+import com.josealejandrorr.speedy.data.Messages;
 import com.josealejandrorr.speedy.data.entities.EntityFilter;
 import com.josealejandrorr.speedy.data.entities.FilterOperator;
 import com.josealejandrorr.speedy.data.entities.Model;
@@ -228,7 +229,7 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
             }
         } catch(SQLException e){
             //System.out.println(e);
-            logger.error("-- ERROR:1 "+ e.getMessage());
+            throw new DatabaseException(Messages.DATABASE_CONNECTION_FAIL, e.getMessage());
         }
         return result;
     }
@@ -239,9 +240,9 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
         ResultSet data = null;
         try{
             data = this.request.executeQuery();
-        } catch(SQLException error)
+        } catch(SQLException e)
         {
-            logger.error("-- ERROR requestReader: "+error.getMessage()+" --");
+            throw new DatabaseException(Messages.DATABASE_EXECUTE_QUERY, e.getMessage());
         }
         return data;
     }
@@ -251,9 +252,9 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
         int affected = 0;
         try{
             affected = this.request.executeUpdate();
-        } catch(SQLException error)
+        } catch(SQLException e)
         {
-            logger.error("-- ERROR: "+error.getMessage()+" --");
+            throw new DatabaseException(Messages.DATABASE_EXECUTE_NONQUERY, e.getMessage());
         }
         return affected;
     }
@@ -298,9 +299,9 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
             }
             success = true;
 
-        } catch(Exception error)
+        } catch(Exception e)
         {
-            logger.error("-- ERROR: "+error.getMessage()+" --\n");
+            throw new DatabaseException(Messages.DATABASE_EXECUTE_QUERY, e.getMessage());
         }
 
         return success;

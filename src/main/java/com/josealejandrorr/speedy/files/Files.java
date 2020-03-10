@@ -1,5 +1,6 @@
 package com.josealejandrorr.speedy.files;
 
+import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.utils.Logger;
 
 import java.io.*;
@@ -47,8 +48,8 @@ public class Files {
             out.flush();
             out.close();
             return true;
-        } catch (IOException x) {
-            System.err.println(x);
+        } catch (IOException e) {
+            Application.logger.error("Error Writing File: '" + path + "' by: " + e.getMessage());
         }
         return false;
     }
@@ -62,8 +63,8 @@ public class Files {
                 java.nio.file.Files.newOutputStream(p, CREATE, APPEND))) {
             out.write(data, 0, data.length);
             return true;
-        } catch (IOException x) {
-            System.err.println(x);
+        } catch (IOException e) {
+            Application.logger.error(e.getMessage());
         }
         return false;
     }
@@ -91,7 +92,7 @@ public class Files {
             }
             // line is not visible here.
         } catch (IOException e) {
-            Logger.getLogger().debug("Error Loading Files: " + path + " by: " + e.getMessage());
+            Application.logger.error("Error Loading Files: '" + path + "' by: " + e.getMessage());
         }
         return content;
     }
@@ -119,6 +120,7 @@ public class Files {
             java.nio.file.Files.move(source, dest);
             return true;
         } catch (IOException e) {
+            Application.logger.error("Error Moving File: from '" + source + "' to '"+dest+"' by: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
@@ -146,6 +148,7 @@ public class Files {
         try {
             return java.nio.file.Files.deleteIfExists(path);
         } catch (IOException e) {
+            Application.logger.error("Error Deleting File: '" + path + "' by: " + e.getMessage());
             e.printStackTrace();
         }
         return false;

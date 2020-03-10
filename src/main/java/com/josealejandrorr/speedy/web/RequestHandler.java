@@ -17,18 +17,6 @@ import java.util.Optional;
 
 public class RequestHandler implements IRequestHandler {
 
-    //private ServiceProvider container;
-
-    /*protected ServiceProvider getContainer()
-    {
-        return Application.container();
-    }*/
-
-    /*public void setContainer(ServiceProvider container)
-    {
-        this.container = container;
-    }*/
-
     protected ILogger logger;
 
     public RequestHandler()
@@ -40,7 +28,6 @@ public class RequestHandler implements IRequestHandler {
     private void autloadClass()
     {
         Field[] fields = this.getClass().getDeclaredFields();
-        //System.out.println("AUTOLOADER = "+this.getClass().getName());
         Arrays.stream(fields).forEach(f ->{
             //System.out.println("HAField = "+f.getName());
             AutoLoad autoload = f.getAnnotation(AutoLoad.class);
@@ -74,7 +61,7 @@ public class RequestHandler implements IRequestHandler {
 
     public void serverDebug(String TAG, String msg)
     {
-        System.out.println(TAG + ": "+msg);
+        Application.logger.debug(TAG + ": "+msg);
     }
 
 }

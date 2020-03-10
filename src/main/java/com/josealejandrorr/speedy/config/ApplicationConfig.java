@@ -1,5 +1,8 @@
 package com.josealejandrorr.speedy.config;
 
+import com.josealejandrorr.speedy.events.exceptions.ApplicationException;
+import com.josealejandrorr.speedy.events.exceptions.ExceptionMessages;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -29,9 +32,7 @@ public class ApplicationConfig {
             }
             // line is not visible here.
         } catch (IOException e) {
-            System.out.println("Error al Leer el Archivo de Configuracion");
-            // TODO Auto-generated catch block
-            //e.printStackTrace();
+            throw new RuntimeException(ExceptionMessages.APPLICATION_CONFIG_FILE_NOT_FOUND);
         }
         return data;
     }
