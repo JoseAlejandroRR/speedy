@@ -230,6 +230,7 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
 
     public void customer(Request req, Response res)
     {
+        logger.debug("LLAMA");
        /*Customer customer = new Customer();
 
        customer.name = "Jose";
@@ -291,12 +292,12 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
          //p2.category().products();
         //productService = new ProductService();
         //System.out.println(productService.name);
-        //res.json(category);
-        boolean s = productService.addProduc(req.body);
+        res.json(category);
+        /*boolean s = productService.addProduc(req.body);
         if (s) {
             res.send("Product register");
         } else {
             res.send("Error in addProduct");
-        }
+        }*/
     }
 }

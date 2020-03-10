@@ -60,7 +60,10 @@ public class Request {
 
         HashMap<String, Object> body = new HashMap<String, Object>();
 
-        String contentType = headers.get("Content-type").get(0);
+        String contentType = CONTENT_TYPE_JSON;
+        if (headers.containsKey("Content-type")){
+            contentType =  headers.get("Content-type").get(0);
+        }
 
        body = parseTextToBody(contentType, exchange, charset);
 
@@ -88,6 +91,9 @@ public class Request {
             return body;
         }
 
+        if (bodyRaw.trim().length() < 1) {
+            return body;
+        }
 
         if (contentType.equals(CONTENT_TYPE_JSON))
         {
