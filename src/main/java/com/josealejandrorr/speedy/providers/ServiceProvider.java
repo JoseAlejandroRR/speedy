@@ -79,6 +79,7 @@ public class ServiceProvider {
 
         Set<Class<?>> klass = reflections.getTypesAnnotatedWith(SmartClass.class);
         klass.stream().filter(c -> !c.isAnnotation()).forEach(c -> {
+            System.out.println("CLASS " + c.getName());
             Object obj = Builder.createInstance(c.getName());
             Provider pr = new Provider();
             pr.create(obj);

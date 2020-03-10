@@ -38,7 +38,7 @@ public class Server implements IServer, IWebServer
 
     public boolean isRunning = false;
 
-    public static final String SESSION_SERVER_NAME = "SEJOSESSIONID";
+    public static final String SESSION_SERVER_NAME = "SpeedySessionId";
 
 
     public Server(ILogger logger)
@@ -47,11 +47,10 @@ public class Server implements IServer, IWebServer
         init();
     }
 
-    public Server(ILogger logger, IRequestHandler handlr404)
+    public Server(ILogger logger, IRequestHandler page404)
     {
-
         this.logger = logger;
-        handler404 = handlr404;
+        handler404 = page404;
         init();
     }
 

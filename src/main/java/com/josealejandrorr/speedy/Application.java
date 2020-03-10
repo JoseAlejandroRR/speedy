@@ -39,6 +39,21 @@ public class Application  {
         container.setContextDefault();
     }
 
+    public Application(ServiceProvider container, ApplicationConfig config, IServer server, ILogger logger)
+    {
+        providers = new HashMap<String, Provider>();
+
+        Application.logger = logger;
+
+        Application.server = server;
+
+        Application.container = container;
+
+        dataEnv = config.data();
+
+        container.setContextDefault();
+    }
+
     public void setServer(IServer server)
     {
         Application.server = server;

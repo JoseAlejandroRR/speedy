@@ -377,7 +377,6 @@ public class MySqlDriverDatabase extends EntityMapper implements DatabaseReposit
             while (rs.next()) {
                 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 HashMap<String, Object> row = new HashMap<>();
-                System.out.println(rs.getRow());
                 for (int i = 1; i <= columns; ++i) {
 
                     switch(md.getColumnTypeName(i))

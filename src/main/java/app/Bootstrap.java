@@ -14,12 +14,9 @@ import com.josealejandrorr.speedy.web.Server;
 
 public class Bootstrap {
 
-    //private static String urlConfigurationFile = "./application.config";
     public static void run()
     {
         System.out.println("Init");
-        //Conexion conexion = new Conexion();
-        //conexion.modeDebug = true;
 
         ApplicationConfig config = new ApplicationConfig("./application.config");
 
@@ -27,7 +24,7 @@ public class Bootstrap {
         logger.setMode(config.data().get("application.mode"));
         logger.setFileStorage(config.data().get("application.log"));
 
-        Server server = new Server(logger, new PageNotFound());
+        Server server = new Server(logger);
 
         ServiceProvider container = new ServiceProvider();
 
@@ -35,14 +32,11 @@ public class Bootstrap {
 
         container.setLogger(logger);
 
-        Application app = new Application(container, config);
-        app.setServer(server);
-        app.setLogger(logger);
-
+        Application app = new Application(container, config, server, logger);
 
         Routes routes = new Routes(server.getRouterHandler());
 
-        //routes.getRouter().setHandler404(new PageNotFound());
+        //routes.getRouter().setHandler404(new PageNotFoundDefault());
 
         container.registerProviders(Providers.getList());
 

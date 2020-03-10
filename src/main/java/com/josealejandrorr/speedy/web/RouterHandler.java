@@ -1,13 +1,13 @@
 package com.josealejandrorr.speedy.web;
 
 
+import app.http.handlers.PageNotFound;
 import com.josealejandrorr.speedy.Application;
 import com.josealejandrorr.speedy.contracts.http.IMiddleware;
 import com.josealejandrorr.speedy.contracts.http.IRequestValidator;
 import com.josealejandrorr.speedy.contracts.providers.ILogger;
 import com.josealejandrorr.speedy.contracts.http.IRequestHandler;
 import com.josealejandrorr.speedy.contracts.http.IWebServer;
-import com.josealejandrorr.speedy.events.exceptions.EventException;
 import com.josealejandrorr.speedy.providers.ServiceProvider;
 import com.josealejandrorr.speedy.utils.Builder;
 import com.josealejandrorr.speedy.utils.Validator;
@@ -160,16 +160,17 @@ public class RouterHandler implements HttpHandler {
             }
         } else {
             if (Server.getHandler404() == null) {
+                callMethodAtInstance(PageNotFoundDefault.class.getName(),"index", request, response);
                 //response.send("URL not found.", 404);
             } else {
-                callMethodAtInstance(Server.getHandler404(),"index", request, response);
+                callMethodAtInstance(PageNotFound.class.getName(),"index", request, response);
             }
             logger.info("URL: " + request.url +" not found","httpCode: 404");
         }
 
         exchange.sendResponseHeaders(response.httpCode, response.getResponse().length());
         OutputStream os = exchange.getResponseBody();
-        os.write(response.getResponse().getBytes());
+        os.write(response.getResponse().    getBytes());
         os.close();
 
         //Files.clearTempDir();
@@ -227,7 +228,6 @@ public class RouterHandler implements HttpHandler {
         for(int i = 0; i < ks.length; i++)
         {
             if(!ks[i].equals(vs[i])) {
-                //System.out.println(ks[i].replaceFirst("\\[","").replaceFirst("\\]","")+"="+vs[i]);
                 vars.put(ks[i].replaceFirst("\\[","").replaceFirst("\\]",""),vs[i]);
             }
         }
@@ -251,7 +251,6 @@ public class RouterHandler implements HttpHandler {
 
         if (!handler.getClass().toString().contains("class")) return false;
         String className = handler.toString().split(" ")[1];
-        logger.debug("RUN "+className);
 
         if (Application.container().existInstance(className)) {
 
@@ -337,7 +336,6 @@ public class RouterHandler implements HttpHandler {
         Method method = null;
         Object l = null;
         try {
-            System.out.println("CLASS = "+obj.getClass().toString());
             l = Application.container().getProvider(obj.toString());
             method = l.getClass().getMethod(methodName, Request.class, Response.class);
         } catch (SecurityException e) {

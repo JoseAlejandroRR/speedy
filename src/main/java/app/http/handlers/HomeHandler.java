@@ -230,7 +230,6 @@ public class HomeHandler extends RequestHandler implements IRequestHandler {
 
     public void customer(Request req, Response res)
     {
-        logger.debug("LLAMA");
        /*Customer customer = new Customer();
 
        customer.name = "Jose";

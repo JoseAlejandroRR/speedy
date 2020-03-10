@@ -99,8 +99,6 @@ public class Request {
         if (contentType.equals(CONTENT_TYPE_JSON))
         {
             JSONObject json = new JSONObject(bodyRaw);
-            System.out.println("JSON:");
-            System.out.println(json.toString());
             body = (HashMap<String, Object>) json.toMap();
         } else if (contentType.contains("application/x-www-form-urlencoded")) {
             String[] vars = bodyRaw.trim().split("&");
